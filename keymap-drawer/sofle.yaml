@@ -54,15 +54,136 @@ layers:
   - LCTRL
   - LALT
   - LGUI
-  - {t: BACKSPACE, h: lower}
-  - RET
-  - ENTER
-  - {t: SPACE, h: raise}
+  - {t: BACKSPACE, h: symbol}
+  - {t: RET, h: number}
+  - TAB
+  - {t: SPACE, h: cursor}
   - RCTRL
   - RALT
   - RGUI
-  lower:
+  symbol:
+  - '`'
+  - ']'
+  - (
+  - )
+  - ;
+  - .
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '['
+  - '!'
+  - '{'
+  - '}'
+  - ','
+  - '?'
+  - '`'
+  - '7'
+  - '8'
+  - '9'
+  - ':'
+  - '%'
+  - '#'
+  - ^
+  - '='
+  - _
+  - $
+  - '*'
+  - '"'
+  - '4'
+  - '5'
+  - '6'
+  - '-'
+  - +
+  - '~'
+  - <
+  - '|'
+  - '-'
+  - '>'
+  - /
+  - \
+  - .
+  - ''''
+  - '1'
+  - '2'
+  - '3'
+  - /
+  - '*'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - (
+  - '['
+  - ']'
+  - )
+  cursor:
+  - {t: ▽, type: trans}
+  - ESC
+  - INS
+  - Sft+TAB
+  - DEL
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - RET
+  - SPACE
+  - TAB
+  - BSPC
+  - CUT
+  - CUT
+  - Sft+TAB
+  - UNDO
+  - REDO
+  - TAB
+  - {t: ▽, type: trans}
+  - LSHFT
+  - LALT
+  - LCTRL
+  - LSHFT
+  - {t: ▽, type: trans}
+  - COPY
+  - COPY
+  - LEFT
+  - UP
+  - DOWN
+  - RIGHT
+  - RSHFT
+  - {t: ▽, type: trans}
+  - Ctl+A
+  - Ctl+L
+  - Ctl+W
+  - FIND
+  - PASTE
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PASTE
+  - HOME
+  - PG UP
+  - PG DN
+  - END
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: FIND, type: held}
+  - Ctl+Sft+G
+  - Ctl+G
+  - {t: ▽, type: trans}
+  number:
   - F1
   - F2
   - F3
@@ -74,97 +195,32 @@ layers:
   - F9
   - F10
   - F11
-  - '`'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
+  - F12
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - '|'
   - '7'
   - '8'
   - '9'
-  - '0'
-  - F12
-  - {t: ▽, type: trans}
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - ^
-  - '&'
-  - KP MULTIPLY
-  - (
-  - )
-  - '|'
-  - {t: ▽, type: trans}
-  - '='
-  - '-'
-  - KP PLUS
-  - '{'
-  - '}'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '['
-  - ']'
-  - ;
   - ':'
-  - \
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  raise:
-  - BT CLR
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - INS
-  - PSCRN
-  - CMENU
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - PG UP
-  - {t: ▽, type: trans}
-  - UP
-  - {t: ▽, type: trans}
-  - '0'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - LALT
-  - LCTRL
+  - '#'
   - LSHFT
   - {t: ▽, type: trans}
-  - CLCK
-  - PG DN
-  - SPACE
-  - TAB
-  - Sft+TAB
-  - ENTER
-  - BSPC
   - {t: ▽, type: trans}
-  - UNDO
-  - CUT
-  - COPY
-  - PASTE
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '='
+  - '4'
+  - '5'
+  - '6'
+  - '-'
+  - +
+  - '0'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -172,17 +228,22 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '*'
+  - '1'
+  - '2'
+  - '3'
+  - /
+  - '%'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '0'
+  - (
+  - '['
+  - ']'
+  - )
   adjust:
   - BT CLR
   - {t: BT, h: '0'}
@@ -190,7 +251,7 @@ layers:
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
   - {t: BT, h: '4'}
-  - W
+  - ''
   - ''
   - ''
   - ''
