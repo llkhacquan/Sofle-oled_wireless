@@ -54,10 +54,10 @@ layers:
   - LCTRL
   - LALT
   - LGUI
-  - {t: BACKSPACE, h: symbol}
+  - {t: BACKSPACE, h: cursor}
   - {t: RET, h: number}
   - TAB
-  - {t: SPACE, h: cursor}
+  - {t: SPACE, h: symbol}
   - RCTRL
   - RALT
   - RGUI
@@ -81,11 +81,11 @@ layers:
   - ','
   - '?'
   - '`'
-  - '7'
-  - '8'
-  - '9'
-  - ':'
-  - '%'
+  - LEFT
+  - UP
+  - DOWN
+  - RIGHT
+  - {t: ▽, type: trans}
   - '#'
   - ^
   - '='
@@ -93,11 +93,11 @@ layers:
   - $
   - '*'
   - '"'
-  - '4'
-  - '5'
-  - '6'
-  - '-'
-  - +
+  - BSPC
+  - SPACE
+  - TAB
+  - ENTER
+  - {t: ▽, type: trans}
   - '~'
   - <
   - '|'
@@ -107,21 +107,21 @@ layers:
   - \
   - .
   - ''''
-  - '1'
-  - '2'
-  - '3'
-  - /
-  - '*'
+  - DEL
+  - Sft+TAB
+  - INS
+  - ESC
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - (
-  - '['
-  - ']'
-  - )
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: HOME, type: held}
+  - PG UP
+  - PG DN
+  - END
   cursor:
   - {t: ▽, type: trans}
   - ESC
@@ -176,10 +176,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: FIND, type: held}
+  - FIND
   - Ctl+Sft+G
   - Ctl+G
   - {t: ▽, type: trans}
