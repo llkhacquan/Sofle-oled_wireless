@@ -51,9 +51,9 @@ layers:
   - .
   - /
   - RSHFT
-  - LGUI
-  - LALT
   - LCTRL
+  - LALT
+  - LGUI
   - {t: BACKSPACE, h: lower}
   - RET
   - ENTER
@@ -154,10 +154,10 @@ layers:
   - {t: ▽, type: trans}
   - CLCK
   - PG DN
-  - LEFT
-  - DOWN
-  - RIGHT
-  - DEL
+  - SPACE
+  - TAB
+  - Sft+TAB
+  - ENTER
   - BSPC
   - {t: ▽, type: trans}
   - UNDO
