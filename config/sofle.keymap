@@ -46,7 +46,7 @@
 &kp TAB     &kp Q   &kp W      &kp E     &kp R     &kp T                                     &kp Y        &kp U      &kp I      &kp O     &kp P     &kp BSPC
 &kp ESCAPE  &kp A   &kp S      &kp D     &kp F     &kp G                                     &kp H        &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT   &kp Z   &kp X      &kp C     &kp V     &kp B            &kp C_MUTE    &none      &kp N        &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                    &kp LCTRL  &kp LALT  &kp LGUI  &lt 1 BACKSPACE  &lt 3 RET     &kp TAB    &lt 2 SPACE  &kp RCTRL  &kp RALT   &kp RGUI
+                    &kp LCTRL  &kp LALT  &kp LGUI  &lt 2 BACKSPACE  &lt 3 RET     &kp TAB    &lt 1 SPACE  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -58,17 +58,17 @@
             // SYMBOL LAYER - Programming Symbols (adapted from glove80)
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  ]  |  (  |  )   |  ;   |  .   |                   |      |      |       |      |       |       |
-            // |   [   |  !  |  {  |  }   |  ,   |  ?   |                   |   `  |  7   |   8   |  9   |   :   |   %   |
-            // |   #   |  ^  |  =  |  _   |  $   |  *   |                   |   "  |  4   |   5   |  6   |   -   |   +   |
-            // |   ~   |  <  |  |  |  -   |  >   |  /   |   \   |  |   .   |   '  |  1   |   2   |  3   |   /   |   *   |
-            //               |     |      |      |      |       |  |       |   (  |  [   |   ]   |  )   |
+            // |   [   |  !  |  {  |  }   |  ,   |  ?   |                   |   `  |  ←   |   ↑   |  ↓   |   →   |       |
+            // |   #   |  ^  |  =  |  _   |  $   |  *   |                   |   "  | BSPC | SPACE | TAB  | ENTER |       |
+            // |   ~   |  <  |  |  |  -   |  >   |  /   |   \   |  |   .   |   '  | DEL  | S-TAB | INS  |  ESC  |       |
+            //               |     |      |      |      |       |  |       | HOME | PGUP | PGDN  | END  |
 
             bindings = <
-&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR   &kp SEMI   &kp DOT                       &trans     &trans   &trans   &trans   &trans     &trans
-&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC   &kp COMMA  &kp QMARK                     &kp GRAVE  &kp N7   &kp N8   &kp N9   &kp COLON  &kp PRCNT
-&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp ASTRK                     &kp DQT    &kp N4   &kp N5   &kp N6   &kp MINUS  &kp PLUS
-&kp TILDE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH   &kp BSLH   &kp DOT &kp SQT    &kp N1   &kp N2   &kp N3   &kp FSLH   &kp ASTRK
-                      &trans     &trans     &trans     &trans     &trans     &trans  &kp LPAR   &kp LBKT &kp RBKT &kp RPAR
+&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR   &kp SEMI   &kp DOT                       &trans     &trans         &trans      &trans        &trans     &trans
+&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC   &kp COMMA  &kp QMARK                     &kp GRAVE  &kp LEFT       &kp UP      &kp DOWN      &kp RIGHT  &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp ASTRK                     &kp DQT    &kp BSPC       &kp SPACE   &kp TAB       &kp ENTER  &trans
+&kp TILDE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH   &kp BSLH   &kp DOT &kp SQT    &kp DEL        &kp LS(TAB) &kp INS       &kp ESC    &trans
+                      &trans     &trans     &trans     &trans     &trans     &trans  &kp HOME   &kp PG_UP      &kp PG_DN   &kp END
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
