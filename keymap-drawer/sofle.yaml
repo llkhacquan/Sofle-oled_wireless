@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: sofle}
 layers:
-  default:
+  qwerty:
   - '`'
   - '1'
   - '2'
@@ -26,16 +26,16 @@ layers:
   - P
   - BSPC
   - ESCAPE
-  - {t: A, h: LGUI}
+  - {t: A, h: LCTRL}
   - {t: S, h: LALT}
-  - {t: D, h: LCTRL}
+  - {t: D, h: LGUI}
   - {t: F, h: LSHFT}
   - G
   - H
   - {t: J, h: RSHFT}
-  - {t: K, h: RCTRL}
+  - {t: K, h: RGUI}
   - {t: L, h: RALT}
-  - {t: ;, h: RGUI}
+  - {t: ;, h: RCTRL}
   - ''''
   - LSHFT
   - Z
