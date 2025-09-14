@@ -32,6 +32,7 @@
         compatible = "zmk,combos";
 
         // Left bootloader combo: 1 + 5
+
         combo_bootloader_left {
             timeout-ms = <50>;
             key-positions = <1 5>;
@@ -39,6 +40,7 @@
         };
 
         // Right bootloader combo: 0 + 6
+
         combo_bootloader_right {
             timeout-ms = <50>;
             key-positions = <9 6>;
@@ -49,6 +51,7 @@
     behaviors {
         // Custom layer-tap with quick-tap for auto-repeat
         // Allows tap-then-hold to bypass layer and enable auto-repeat
+
         lt_repeat: layer_tap_with_repeat {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -56,10 +59,12 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;  // Enable tap-then-hold repeat
             bindings = <&mo>, <&kp>;
+
             retro-tap;  // Allow tap on hold-release (forgiveness)
         };
 
         // Home row mod-tap
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -85,11 +90,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE   &kp N1        &kp N2       &kp N3       &kp N4       &kp N5                                    &kp N6       &kp N7       &kp N8       &kp N9       &kp N0        &kp DELETE
-&kp TAB     &kp Q         &kp W        &kp E        &kp R        &kp T                                     &kp Y        &kp U        &kp I        &kp O        &kp P         &kp BSPC
-&kp ESCAPE  &hm LGUI A    &hm LALT S   &hm LCTRL D  &hm LSHFT F  &kp G                                     &kp H        &hm RSHFT J  &hm RCTRL K  &hm RALT L   &hm RGUI SEMI &kp SQT
-&kp LSHFT   &kp Z         &kp X        &kp C        &kp V        &kp B            &kp C_MUTE    &none      &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH      &kp RSHFT
-                          &kp LCTRL    &kp LALT     &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB     &kp TAB    &lt_repeat 1 SPACE  &kp RCTRL    &kp RALT     &kp RGUI
+&kp GRAVE   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                               &kp N6              &kp N7       &kp N8       &kp N9      &kp N0         &kp DELETE
+&kp TAB     &kp Q       &kp W       &kp E        &kp R        &kp T                                                &kp Y               &kp U        &kp I        &kp O       &kp P          &kp BSPC
+&kp ESCAPE  &hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G                                                &kp H               &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI  &kp SQT
+&kp LSHFT   &kp Z       &kp X       &kp C        &kp V        &kp B                   &kp C_MUTE          &none    &kp N               &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RSHFT
+                        &kp LCTRL   &kp LALT     &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &kp TAB  &lt_repeat 1 SPACE  &kp RCTRL    &kp RALT     &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -107,11 +112,11 @@
             //               |     |      |      |      |       |  |       | HOME | PGUP | PGDN  | END  |
 
             bindings = <
-&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR   &kp SEMI   &kp DOT                       &trans     &trans         &trans      &trans        &trans     &trans
-&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC   &kp COMMA  &kp QMARK                     &kp GRAVE  &kp LEFT       &kp UP      &kp DOWN      &kp RIGHT  &trans
-&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR   &kp ASTRK                     &kp DQT    &kp BSPC       &kp SPACE   &kp TAB       &kp ENTER  &trans
-&kp TILDE  &kp LT     &kp PIPE   &kp MINUS  &kp GT     &kp FSLH   &kp BSLH   &kp DOT &kp SQT    &kp DEL        &kp LS(TAB) &kp INS       &kp ESC    &trans
-                      &trans     &trans     &trans     &trans     &trans     &trans  &kp HOME   &kp PG_UP      &kp PG_DN   &kp END
+&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR           &kp SEMI   &kp DOT                            &trans     &trans     &trans       &trans    &trans     &trans
+&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC           &kp COMMA  &kp QMARK                          &kp GRAVE  &kp LEFT   &kp UP       &kp DOWN  &kp RIGHT  &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER          &kp DLLR   &kp ASTRK                          &kp DQT    &kp BSPC   &kp SPACE    &kp TAB   &kp ENTER  &trans
+&kp TILDE  &kp LT     &kp PIPE   &kp MINUS          &kp GT     &kp FSLH     &kp BSLH     &kp DOT  &kp SQT    &kp DEL    &kp LS(TAB)  &kp INS   &kp ESC    &trans
+                      &kp SQT    &kp DOUBLE_QUOTES  &kp PLUS   &kp PERCENT  &kp COLON    &trans   &kp HOME   &kp PG_UP  &kp PG_DN    &kp END
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -129,11 +134,11 @@
             //                |      |      |      |      |      |  |       | FIND |FND_PR|FND_NX |      |
 
             bindings = <
-&trans     &kp ESC      &kp INS      &kp LS(TAB)  &kp DEL      &trans                           &trans      &trans         &trans      &trans        &trans     &trans
-&trans     &kp RET      &kp SPACE    &kp TAB      &kp BSPC     &kp K_CUT                        &kp K_CUT   &kp LS(TAB)    &kp K_UNDO  &kp K_REDO    &kp TAB    &trans
-&kp LSHFT  &kp LALT     &kp LCTRL    &kp LSHFT    &trans       &kp K_COPY                       &kp K_COPY  &kp LEFT       &kp UP      &kp DOWN      &kp RIGHT  &kp RSHFT
-&trans     &kp LC(A)    &kp LC(L)    &kp LC(W)    &kp K_FIND   &kp K_PASTE  &trans    &trans    &kp K_PASTE &kp HOME       &kp PG_UP   &kp PG_DN     &kp END    &trans
-                        &trans       &trans       &trans       &trans       &trans    &trans    &kp K_FIND  &kp LC(LS(G))  &kp LC(G)   &trans
+&trans     &kp ESC    &kp INS    &kp LS(TAB)  &kp DEL     &trans                         &trans       &trans         &trans      &trans      &trans     &trans
+&trans     &kp RET    &kp SPACE  &kp TAB      &kp BSPC    &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
+&kp LSHFT  &kp LALT   &kp LCTRL  &kp LSHFT    &trans      &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
+&trans     &kp LC(A)  &kp LC(L)  &kp LC(W)    &kp K_FIND  &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
+                      &trans     &trans       &trans      &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -151,11 +156,11 @@
             //                |      |      |      |      |      |  |   0   |   (  |  [   |   ]   |  )   |
 
             bindings = <
-&kp F1     &kp F2   &kp F3   &kp F4   &kp F5   &kp F6                         &kp F7     &kp F8   &kp F9   &kp F10  &kp F11    &kp F12
-&kp A      &kp B    &kp C    &kp D    &kp E    &kp F                          &kp PIPE   &kp N7   &kp N8   &kp N9   &kp COLON  &kp HASH
-&kp LSHFT  &trans   &trans   &trans   &trans   &trans                         &kp EQUAL  &kp N4   &kp N5   &kp N6   &kp MINUS  &kp PLUS
-&kp N0     &trans   &trans   &trans   &trans   &trans    &trans       &trans  &kp ASTRK  &kp N1   &kp N2   &kp N3   &kp FSLH   &kp PRCNT
-                    &trans   &trans   &trans   &trans    &trans       &trans  &kp N0     &kp LBKT &kp RBKT &kp RPAR
+&kp F1     &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                    &kp F7     &kp F8    &kp F9    &kp F10   &kp F11    &kp F12
+&kp A      &kp B   &kp C   &kp D   &kp E   &kp F                     &kp PIPE   &kp N7    &kp N8    &kp N9    &kp COLON  &kp HASH
+&kp LSHFT  &trans  &trans  &trans  &trans  &trans                    &kp EQUAL  &kp N4    &kp N5    &kp N6    &kp MINUS  &kp PLUS
+&kp N0     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp ASTRK  &kp N1    &kp N2    &kp N3    &kp FSLH   &kp PRCNT
+                   &trans  &trans  &trans  &trans  &trans    &trans  &kp N0     &kp LBKT  &kp RBKT  &kp RPAR
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
