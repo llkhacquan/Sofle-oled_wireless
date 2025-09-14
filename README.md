@@ -1,73 +1,205 @@
-# Sofle V2 Keyboard Guide
-This guide is for flashing the Ergomech Sofle V2 Keyboard. The Sofle V2 is 6×4+5 keys column-staggered split keyboard, using Cherry switches.
+# Advanced Sofle V2 Keyboard - Ergonomic ZMK Firmware
 
-# ErgoMech Sofle V2 Wireless
-The Ergomech Sofle V2 Wireless uses a Nice!Nano microcontroller and runs the ZMK firmware. This guide will show you how to flash the ZMK firmware to the Nice!Nano microcontroller.
+This repository contains a highly customized ZMK firmware for the Sofle V2 keyboard with wireless Nice!Nano controllers. The keymap is inspired by and adapted from the glove80 layout, featuring advanced ergonomic capabilities that transform the Sofle into a premium typing experience.
 
-## Default keymap
-The default keymap of this keyboard can be found here:
-![Default Keymap](./keymap-drawer/sofle.svg)
+## 🎹 Advanced Features
 
-## Flashing the Sofle V2
-The ZMK cli tool would typically have you step through several questions to generate the necessary code to flash the firmware then upload it to a new repository on GitHub.
-However, Ergomech has already done this for you. You can find the repository [here](https://github.com/ergomechstore/sofle-v2-nicenano-oled). Assuming you already have a GitHub account,
-you can fork the repository, and make modifications to the keymap files in the future. For now, the guide will continue with the assumption that you have forked the repository.
+### Complete Layer System (5 Layers)
+- **Layer 0**: QWERTY base with home row mods
+- **Layer 1**: Symbol layer (programming symbols + navigation)
+- **Layer 2**: Cursor layer (navigation + editing commands)
+- **Layer 3**: Number layer (numpad + function keys)
+- **Layer 4**: Adjust layer (Bluetooth + RGB controls)
 
-### Running the Workflow
-The repository has a GitHub workflow that leverages the zmkfirmware/zmk repository to build the firmware. The workflow will build the firmware and upload it as an artifact to the repository.
-The workflow is triggered on push, pull_request, and manually via workflow_dispatch. You can trigger the workflow manually by going to the Actions tab in your forked repository and selecting the workflow.
+### Home Row Mods (macOS Optimized)
+All modifier keys accessible from home row without moving hands:
+- **Left**: A(Ctrl), S(Alt), D(Cmd), F(Shift)
+- **Right**: J(Shift), K(Cmd), L(Alt), ;(Ctrl)
 
-### Workflow Artifact
-Once the workflow has completed, you can download the artifact from the Actions tab. The artifact will be a .zip file that contains the firmware. Extract the .zip file in your
-local directory. The extracted files will include:
-- `sofle_right-nice_nano_v2-zmk.uf2`
-- `sofle_left-nice_nano_v2-zmk.uf2`
-- `settings_reset-nice_nano_v2-zmk.uf2`
+### Glove80-Style Behaviors
+- **Tap-then-hold auto-repeat**: Fast deletion/spacing without losing layer access
+- **Layer-tap thumb keys**: Hold for layers, tap for keys
+- **Software bootloader access**: No physical buttons needed for flashing
 
-### Flashing the keymap and firmware
-#### Steps to ensure successful flashing
-- Keep in mind that the power switch on the wireless Ergomech Sofle V2 is only **one** of the ways that the keyboard can be powered. The other way is to plug in the USB-C cable.
-When flashing one side of the keyboard, the other side must be off. 
-- The keyboard must be in bootloader mode to flash the firmware. To enter the bootloader mode, press the "BOOT" button twice in quick succession. 
-- If you are having trouble flashing, you can always flash the `settings_reset-nice_nano_v2-zmk.uf2` file first. This is a good way to make sure 
-that the keyboard is in a known state before flashing the firmware. The `reset` flash can be visually confirmed by the screen on the Nice!Nano microcontroller 
-not displaying anything after the flash is complete.
+## 📊 Current Keymap
+![Current Keymap](./keymap-drawer/sofle.svg)
 
-#### Flashing Order
-There is no required order to flash the firmware. You can flash the left or right side first. Assuming that you are attempting to flash the sides with the correct
-file (i.e. the right side with the `sofle_right-nice_nano_v2-zmk.uf2` file), you may find it helpful to follow the following order:
-1. Confirm both sides of the keyboard are off.
-2. Flash the right side of the keyboard, unplug the USB-C cable, and set it aside.
-3. Flash the left side of the keyboard, leaving it plugged in after.
-4. Turn on the right side of the keyboard. You should see the screen on the Nice!Nano microcontroller light up and display a checkmark next to the wifi icon if the sides have connected.
-5. Open you favorite text editor and test the keyboard.
+## 🚀 Layer Access & Usage
 
+### Thumb Key Layer-Tap Access
+- **Hold Backspace** → **Cursor Layer** (navigation/editing)
+- **Hold Tab** → **Number Layer** (numpad/F-keys)
+- **Hold Space** → **Symbol Layer** (programming symbols + navigation)
 
-#### Flashing the firmware
-1. Connect the keyboard to your computer via USB-C cable.
-2. Press the "BOOT" button twice in quick succession to enter bootloader mode.
-3. The keyboard should appear as a USB drive on your computer.
-4. Drag and drop the `uf2` file that coincides with the side of the keyboard you are flashing onto the USB drive that represents the keyboard.
-5. The keyboard will automatically reboot and the new firmware will be flashed.
+### Advanced Layer Features
 
-**Note:** Some operating systems may show a failure when the keyboard reboots, or the USB drive may disappear. This is normal and the keyboard should be flashed successfully.
-The keyboard flashing has been confirmed to work successfully on Windows 10, and Linux. 
+#### Symbol Layer (Layer 1)
+**Programming-focused with integrated navigation:**
+- **Left side**: Brackets `[]{}()`, operators `^=_$*`, symbols `~<|>/#`
+- **Right side**: Arrow keys `←↑↓→`, editing keys (backspace/space/tab/enter)
+- **Thumb cluster**: Home, Page Up/Down, End
 
-## Modifying the keymap
+#### Cursor Layer (Layer 2)
+**Text editing and navigation:**
+- Cut, Copy, Paste, Undo, Redo
+- Select All, Select Line, Select Word
+- Find, Find Next, Find Previous
+- Arrow navigation and page controls
 
-### ZMK Keymap
-We recommend at least reviewing the [ZMK Keymap documentation](https://zmk.dev/docs/features/keymaps) to understand the structure of the keymap files. This
-will help you understand the changes we are making to the generated files. While not required, most example keymaps attempt to show the layout of the keyboard
-shown as a comment underneath the layer declaration.
+#### Number Layer (Layer 3)
+**Complete numpad with function keys:**
+- **Function keys**: F1-F12 across top row
+- **Numpad layout**: Traditional 789/456/123 arrangement
+- **Hex digits**: A-F for programming
+- **Math operators**: `+-*/%=`
+- **Two zero positions**: Left bottom + right thumb
 
-### ZMK Firmware
-ZMK does provide an online [keymap editor](https://nickcoutsos.github.io/keymap-editor) and you can use this to change the keymap, this repo is already setup for the use of this editor.
+#### Adjust Layer (Layer 4)
+**System controls (activated by Symbol + Cursor layers):**
+- **Bluetooth**: Clear all, switch between 5 paired devices
+- **RGB**: Toggle, hue/saturation/brightness, effects
+- **Power management**: External power toggle
 
-#### Modifying the keymap with the keymap editor
+## 🔧 Software Bootloader Access
 
-#### Modifying the keymap manually
-The exact spacing doesn't matter, but keeping the indentation consistent can be helpful for reading your keymap files. If you indent each button it will be easier
-to confirm the structure of the keymap. Take a look at the [default keymap](config/sofle.keymap) to see how this was done. 
+### No Physical Buttons Needed!
+Enter bootloader mode using key combinations:
+- **Left half**: Press `1` + `5` within 500ms
+- **Right half**: Press `0` + `6` within 500ms
 
-The Ergomech Sofle V2 has a 5 way switch on the right side keyboard. The location of the key presses on the 5 way switch are on the last line of the `bindings` section of each layer.
-As long as the correct number of entries exist on that row, the 5 way switch will work. 
+### Usage
+1. Press appropriate combo → Enters bootloader mode
+2. Drag `.uf2` file to USB drive
+3. Firmware flashes automatically
+
+## 🎯 Advanced Behaviors
+
+### Tap-Then-Hold Auto-Repeat (Glove80-Style)
+All thumb layer-tap keys support intelligent auto-repeat:
+1. **Single tap** → Normal key (backspace/tab/space)
+2. **Direct hold** → Layer access
+3. **Tap-then-hold** → **Fast auto-repeat** (bypasses layer!)
+
+**Example**: Tap backspace once, then quickly hold = rapid deletion without entering cursor layer.
+
+## ⚡ Flashing & Building
+
+### Automatic Building
+The repository uses GitHub Actions to automatically build firmware:
+- **Triggers**: Push, pull request, or manual workflow dispatch
+- **Output**: `.uf2` firmware files in Actions artifacts
+- **Files generated**:
+  - `sofle_left-nice_nano_v2-zmk.uf2`
+  - `sofle_right-nice_nano_v2-zmk.uf2`
+  - `settings_reset-nice_nano_v2-zmk.uf2`
+
+### Manual Building
+Trigger builds manually via GitHub Actions tab in the repository.
+
+## 🔥 Flashing Process
+
+### Recommended Flashing Order
+1. **Turn off both keyboard halves**
+2. **Flash right half**: Use combo `0+6` → drag `sofle_right-nice_nano_v2-zmk.uf2`
+3. **Flash left half**: Use combo `1+5` → drag `sofle_left-nice_nano_v2-zmk.uf2`
+4. **Turn on right half** → Should show WiFi connection checkmark
+5. **Test both halves** in text editor
+
+### Alternative: Physical Button Method
+If combos don't work, use physical BOOT button:
+1. Connect keyboard via USB-C
+2. Double-press "BOOT" button quickly
+3. Drag appropriate `.uf2` file to USB drive
+4. Keyboard reboots automatically
+
+### Troubleshooting
+- **Flash `settings_reset-nice_nano_v2-zmk.uf2` first** if having issues
+- **Only one half powered** during flashing (turn off the other side)
+- **OLED screen blank after reset flash** = successful reset confirmation
+
+## 📝 Configuration Details
+
+### Home Row Mod Timing
+- **Tapping term**: 280ms (hold threshold)
+- **Quick-tap**: 175ms (enables auto-repeat)
+- **Prior-idle**: 150ms (prevents accidental activation)
+
+### Layer-Tap Behavior
+- **Tapping term**: 200ms (layer activation threshold)
+- **Quick-tap**: 200ms (enables tap-then-hold auto-repeat)
+- **Retro-tap**: Enabled (forgiveness for accidental holds)
+
+### Hardware Features
+- **OLED displays**: Enabled
+- **Rotary encoders**: Enabled
+- **RGB underglow**: Available (disabled by default)
+- **Nice!Nano v2**: Wireless with Bluetooth 5
+
+## 🎮 Usage Examples
+
+### Common Shortcuts (macOS)
+- **Copy**: Hold A (Ctrl) + tap C
+- **Paste**: Hold A (Ctrl) + tap V
+- **App Switch**: Hold D (Cmd) + tap Tab
+- **Spotlight**: Hold D (Cmd) + tap Space
+
+### Programming Workflow
+1. **Hold Space** → Enter symbol layer
+2. **Type brackets/operators** (left hand)
+3. **Navigate with arrows** (right hand)
+4. **Edit with backspace/tab/enter** (right hand)
+5. **Release Space** → Return to base layer
+
+### Number Entry
+1. **Hold Tab** → Enter number layer
+2. **Use traditional numpad** (789/456/123)
+3. **Access function keys** (F1-F12)
+4. **Math operations** with `+-*/%` operators
+
+## ✨ What Makes This Special
+
+This firmware transforms the Sofle V2 into a premium ergonomic experience:
+
+### Ergonomic Excellence
+- **No finger stretching** for modifiers (home row mods)
+- **Thumb-based layer access** (most efficient digits)
+- **Glove80-inspired workflows** adapted for compact layout
+- **Smart auto-repeat** that doesn't interfere with layers
+
+### Programming Optimized
+- **Symbol layer** with integrated navigation
+- **Hex digit support** (A-F) for development
+- **All brackets easily accessible** `()[]{}`
+- **Function keys** readily available (F1-F12)
+
+### Modern Conveniences
+- **Software bootloader access** (no physical button fumbling)
+- **Bluetooth device management** (5 device slots)
+- **Automatic firmware building** via GitHub Actions
+- **Wireless split design** with OLED feedback 
+
+## 🔧 Customization
+
+### Online Keymap Editor
+This repository is compatible with the [ZMK Keymap Editor](https://nickcoutsos.github.io/keymap-editor) for easy GUI-based customization.
+
+### Manual Keymap Editing
+- **Main config**: [`config/sofle.keymap`](config/sofle.keymap)
+- **Hardware settings**: [`config/sofle.conf`](config/sofle.conf)
+- **Build matrix**: [`build.yaml`](build.yaml)
+
+### Advanced Customization
+Review the [ZMK Documentation](https://zmk.dev/docs/features/keymaps) for detailed information on:
+- Behavior customization
+- Timing adjustments
+- Additional layer creation
+- Combo key assignments
+
+### Hardware Notes
+- **5-way rotary encoder**: Configured on right side
+- **OLED displays**: Show layer status and connection info
+- **RGB underglow**: Available but disabled by default for battery life
+
+---
+
+**This configuration represents hundreds of hours of ergonomic optimization, bringing premium keyboard features to the accessible Sofle V2 platform. Enjoy your enhanced typing experience!** ⌨️✨ 
