@@ -55,7 +55,7 @@ layers:
   - LALT
   - LGUI
   - {t: BACKSPACE, h: cursor}
-  - {t: RET, h: number}
+  - {t: TAB, h: number}
   - TAB
   - {t: SPACE, h: symbol}
   - RCTRL
@@ -305,3 +305,8 @@ layers:
   - ''
   - ''
   - ''
+combos:
+- p: [1, 5]
+  k: '&bootloader'
+- p: [9, 6]
+  k: '&bootloader'
