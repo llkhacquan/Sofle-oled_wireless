@@ -112,11 +112,11 @@ layers:
   - INS
   - ESC
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - ''''
+  - '"'
+  - +
+  - '%'
+  - ':'
   - {t: ▽, type: trans}
   - {t: HOME, type: held}
   - PG UP
