@@ -28,6 +28,24 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        // Left bootloader combo: 1 + 5
+        combo_bootloader_left {
+            timeout-ms = <50>;
+            key-positions = <1 5>;
+            bindings = <&bootloader>;
+        };
+
+        // Right bootloader combo: 0 + 6
+        combo_bootloader_right {
+            timeout-ms = <50>;
+            key-positions = <9 6>;
+            bindings = <&bootloader>;
+        };
+    };
+
     behaviors {
         // Custom layer-tap with quick-tap for auto-repeat
         // Allows tap-then-hold to bypass layer and enable auto-repeat
