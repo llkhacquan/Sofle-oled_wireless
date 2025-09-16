@@ -148,10 +148,10 @@ layers:
   - TAB
   - {t: ▽, type: trans}
   - LSHFT
-  - LALT
-  - LCTRL
-  - LSHFT
-  - {t: ▽, type: trans}
+  - {t: A, h: LCTRL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: LSHFT}
   - COPY
   - COPY
   - LEFT
@@ -209,10 +209,10 @@ layers:
   - '0'
   - '#'
   - LSHFT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: A, h: LCTRL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: LSHFT}
   - {t: ▽, type: trans}
   - K
   - '4'
