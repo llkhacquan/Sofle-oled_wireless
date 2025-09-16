@@ -83,14 +83,14 @@
             retro-tap;  // Allow tap on hold-release (forgiveness)
         };
 
-        // Home row mod-tap
+        // Home row mod-tap with glove80-style auto-repeat
 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
+            quick-tap-ms = <300>;  // glove80 REPEAT_DECAY for tap-then-hold auto-repeat
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
 
