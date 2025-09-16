@@ -147,20 +147,20 @@
         raise_layer {
             label = "cursor";
 
-            // CURSOR LAYER - Navigation and Editing (adapted from glove80)
+            // CURSOR LAYER - Navigation and Editing with Home Row Mods
             // ------------------------------------------------------------------------------------------------------------
             // |       |  ESC |  INS | S-TAB|  DEL |      |                   |      |      |       |      |       |       |
             // |       |  RET | SPACE|  TAB | BSPC | CUT  |                   | CUT  |S-TAB | UNDO  | REDO |  TAB  |       |
-            // | SHIFT | LALT | LCTRL| LSHFT|      | COPY |                   | COPY | LEFT |  UP   | DOWN | RIGHT | SHIFT |
+            // | SHIFT |CTL/A |ALT/S |GUI/D |SHF/F | COPY |                   | COPY | LEFT |  UP   | DOWN | RIGHT | SHIFT |
             // |       |SEL_AL|SEL_LN|SEL_WD| FIND |PASTE |      |  |       | PASTE| HOME | PGUP  | PGDN |  END  |       |
             //                |      |      |      |      |      |  |       | FIND |FND_PR|FND_NX |      |
 
             bindings = <
-&trans     &kp ESC    &kp INS    &kp LS(TAB)  &kp DEL     &trans                         &trans       &trans         &trans      &trans      &trans     &trans
-&trans     &kp RET    &kp SPACE  &kp TAB      &kp BSPC    &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
-&kp LSHFT  &kp LALT   &kp LCTRL  &kp LSHFT    &trans      &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
-&trans     &kp LC(A)  &kp LC(L)  &kp LC(W)    &kp K_FIND  &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
-                      &trans     &trans       &trans      &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
+&trans     &kp ESC         &kp INS       &kp LS(TAB)   &kp DEL          &trans                         &trans       &trans         &trans      &trans      &trans     &trans
+&trans     &kp RET         &kp SPACE     &kp TAB       &kp BSPC         &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
+&kp LSHFT  &hm LCTRL A     &hm LALT S    &hm LGUI D    &hm LSHFT F      &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
+&trans     &kp LC(A)       &kp LC(L)     &kp LC(W)     &kp K_FIND       &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
+                           &trans        &trans        &trans           &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -169,20 +169,20 @@
         number_layer {
             label = "number";
 
-            // NUMBER LAYER - Numpad and Function Keys (F1-F9 align with 1-9, F10 with 0)
+            // NUMBER LAYER - Numpad and Function Keys with Home Row Mods
             // ------------------------------------------------------------------------------------------------------------
             // |       |  F1  |  F2  |  F3  |  F4  | F5   |                   | F6  |  F7  |  F8   |  F9  |  F10  |   F11  |
             // |   A   |  B   |  C   |  D   |  E   |  F   |                   |  G   |  7   |   8   |  9   |   0   |   #   |
-            // | SHIFT | HEX  | HEX  | HEX  | HEX  | F6   |                   |  K   |  4   |   5   |  6   |   -   |   +   |
+            // | SHIFT |CTL/A |ALT/S |GUI/D |SHF/F | HEX  |                   |  K   |  4   |   5   |  6   |   -   |   +   |
             // |  F10  |      |      |      |      |      |      |  |       |   J  |  1   |   2   |  3   |   /   |   %   |
             //                |      |      |      |      |      |  |   0   |   (  |  [   |   ]   |  )   |
 
             bindings = <
-&trans     &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                    &kp F6     &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
-&kp A      &kp B   &kp C   &kp D   &kp E   &kp F                     &kp G      &kp N7    &kp N8    &kp N9    &kp N0     &kp HASH
-&kp LSHFT  &trans  &trans  &trans  &trans  &trans                    &kp K      &kp N4    &kp N5    &kp N6    &kp MINUS  &kp PLUS
-&kp N0     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp J      &kp N1    &kp N2    &kp N3    &kp FSLH   &kp PRCNT
-                   &trans  &trans  &trans  &trans  &trans    &trans  &kp N0     &kp LBKT  &kp RBKT  &kp RPAR
+&trans     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                    &kp F6     &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
+&kp A      &kp B         &kp C         &kp D         &kp E         &kp F                     &kp G      &kp N7    &kp N8    &kp N9    &kp N0     &kp HASH
+&kp LSHFT  &hm LCTRL A   &hm LALT S    &hm LGUI D    &hm LSHFT F   &trans                    &kp K      &kp N4    &kp N5    &kp N6    &kp MINUS  &kp PLUS
+&kp N0     &trans        &trans        &trans        &trans        &trans  &trans    &trans  &kp J      &kp N1    &kp N2    &kp N3    &kp FSLH   &kp PRCNT
+                         &trans        &trans        &trans        &trans  &trans    &trans  &kp N0     &kp LBKT  &kp RBKT  &kp RPAR
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
