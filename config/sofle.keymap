@@ -4,13 +4,14 @@
  * SPDX-License-Identifier: MIT
  */
 
+#include <dt-bindings/zmk/mouse.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
 
 #define BASE 0
 #define LOWER 1
@@ -20,17 +21,18 @@
 #define MOUSE 5
 
 // Mouse speed configuration (adapted from glove80)
+
 #define MOUSE_MOTION_DELAY 0
 #define MOUSE_MOTION_ACCELERATION_EXPONENT 1
 #define MOUSE_MOTION_TIME_TO_MAXIMUM_SPEED 300
 #define MOUSE_MOTION_MAXIMUM_SPEED 600
-
 #define MOUSE_SCROLL_DELAY 0
 #define MOUSE_SCROLL_ACCELERATION_EXPONENT 0
 #define MOUSE_SCROLL_TIME_TO_MAXIMUM_SPEED 300
 #define MOUSE_SCROLL_MAXIMUM_SPEED 10
 
 // Mouse speed scaling factors
+
 #define MOUSE_SCALER_FINE 1 16
 #define MOUSE_SCALER_SLOW 1 4
 #define MOUSE_SCALER_FAST 4 1
@@ -112,11 +114,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                               &kp N6              &kp N7       &kp N8       &kp N9      &kp N0         &kp DELETE
-&kp TAB     &kp Q       &kp W       &kp E        &kp R        &kp T                                                &kp Y               &kp U        &kp I        &kp O       &kp P          &kp BSPC
-&kp ESCAPE  &hm LCTRL A  &hm LALT S  &hm LGUI D  &hm LSHFT F  &kp G                                                &kp H               &hm RSHFT J  &hm RGUI K  &hm RALT L  &hm RCTRL SEMI  &kp SQT
-&kp LSHFT   &kp Z       &kp X       &kp C        &kp V        &kp B                   &kp C_MUTE          &none    &kp N               &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp RSHFT
-                        &kp LCTRL   &kp LALT     &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &lt_repeat 5 TAB  &lt_repeat 1 SPACE  &kp RCTRL    &kp RALT     &kp RGUI
+&kp GRAVE   &kp N1       &kp N2      &kp N3      &kp N4       &kp N5                                                        &kp N6              &kp N7       &kp N8            &kp N9             &kp N0          &kp EQUAL
+&kp TAB     &kp Q        &kp W       &kp E       &kp R        &kp T                                                         &kp Y               &kp U        &kp I             &kp O              &kp P           &kp MINUS
+&kp ESCAPE  &hm LCTRL A  &hm LALT S  &hm LGUI D  &hm LSHFT F  &kp G                                                         &kp H               &hm RSHFT J  &hm RGUI K        &hm RALT L         &hm RCTRL SEMI  &kp SQT
+&kp LSHFT   &kp Z        &kp X       &kp C       &kp V        &kp B                   &none               &none             &kp N               &kp M        &kp COMMA         &kp DOT            &kp FSLH        &kp RSHFT
+                         &kp LCTRL   &kp LALT    &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &lt_repeat 5 TAB  &lt_repeat 1 SPACE  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -156,11 +158,11 @@
             //                |      |      |      |      |      |  |       | FIND |FND_PR|FND_NX |      |
 
             bindings = <
-&trans     &kp ESC         &kp INS       &kp LS(TAB)   &kp DEL          &trans                         &trans       &trans         &trans      &trans      &trans     &trans
-&trans     &kp RET         &kp SPACE     &kp TAB       &kp BSPC         &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
-&kp LSHFT  &hm LCTRL A     &hm LALT S    &hm LGUI D    &hm LSHFT F      &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
-&trans     &kp LC(A)       &kp LC(L)     &kp LC(W)     &kp K_FIND       &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
-                           &trans        &trans        &trans           &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
+&trans     &kp ESC      &kp INS     &kp LS(TAB)  &kp DEL      &trans                         &trans       &trans         &trans      &trans      &trans     &trans
+&trans     &kp RET      &kp SPACE   &kp TAB      &kp BSPC     &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
+&kp LSHFT  &hm LCTRL A  &hm LALT S  &hm LGUI D   &hm LSHFT F  &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
+&trans     &kp LC(A)    &kp LC(L)   &kp LC(W)    &kp K_FIND   &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
+                        &trans      &trans       &trans       &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -178,11 +180,11 @@
             //                |      |      |      |      |      |  |   0   |   (  |  [   |   ]   |  )   |
 
             bindings = <
-&trans     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                    &kp F6     &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
-&kp A      &kp B         &kp C         &kp D         &kp E         &kp F                     &kp G      &kp N7    &kp N8    &kp N9    &kp N0     &kp HASH
-&kp LSHFT  &hm LCTRL A   &hm LALT S    &hm LGUI D    &hm LSHFT F   &trans                    &kp K      &kp N4    &kp N5    &kp N6    &kp MINUS  &kp PLUS
-&kp N0     &trans        &trans        &trans        &trans        &trans  &trans    &trans  &kp J      &kp N1    &kp N2    &kp N3    &kp FSLH   &kp PRCNT
-                         &trans        &trans        &trans        &trans  &trans    &trans  &kp N0     &kp LBKT  &kp RBKT  &kp RPAR
+&trans     &kp F1       &kp F2      &kp F3      &kp F4       &kp F5                    &kp F6  &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
+&kp A      &kp B        &kp C       &kp D       &kp E        &kp F                     &kp G   &kp N7    &kp N8    &kp N9    &kp N0     &kp HASH
+&kp LSHFT  &hm LCTRL A  &hm LALT S  &hm LGUI D  &hm LSHFT F  &trans                    &kp K   &kp N4    &kp N5    &kp N6    &kp MINUS  &kp PLUS
+&kp N0     &trans       &trans      &trans      &trans       &trans  &trans    &trans  &kp J   &kp N1    &kp N2    &kp N3    &kp FSLH   &kp PRCNT
+                        &trans      &trans      &trans       &trans  &trans    &trans  &kp N0  &kp LBKT  &kp RBKT  &kp RPAR
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -218,11 +220,11 @@
             //                |      |      |      |      |       |  |       |      | LMB  | RMB  | MMB  |
 
             bindings = <
-&trans     &trans         &trans         &msc SCRL_LEFT  &msc SCRL_UP &msc SCRL_RIGHT                &trans     &trans           &trans           &trans           &trans          &trans
-&trans     &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &kp LC(C)                  &kp LC(X)  &msc SCRL_LEFT   &msc SCRL_UP     &msc SCRL_DOWN   &msc SCRL_RIGHT &trans
-&msc SCRL_UP &trans       &tog 7         &tog 9          &tog 6    &kp LC(V)                      &kp LC(C)  &tog 6           &tog 9           &tog 7           &trans          &trans
-&msc SCRL_DOWN &trans     &trans         &trans          &trans    &trans    &trans        &trans &kp LC(V)  &mmv MOVE_LEFT   &mmv MOVE_UP     &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans
-                          &trans         &trans          &trans    &trans    &trans        &trans &trans     &mkp LCLK        &mkp RCLK        &mkp MCLK
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
+&msc SCRL_UP    &trans  &tog 7          &tog 9          &tog 6           &kp LC(V)                          &kp LC(C)  &tog 6          &tog 9        &tog 7          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -232,12 +234,13 @@
             label = "mouse_warp";
 
             // WARP SPEED (Layer 6) - Very fast mouse movement (12x speed)
+
             bindings = <
-&trans     &trans         &trans         &msc SCRL_LEFT  &msc SCRL_UP &msc SCRL_RIGHT                &trans     &trans           &trans           &trans           &trans          &trans
-&trans     &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &kp LC(C)                  &kp LC(X)  &msc SCRL_LEFT   &msc SCRL_UP     &msc SCRL_DOWN   &msc SCRL_RIGHT &trans
-&msc SCRL_UP &trans       &tog 7         &tog 9          &tog 6    &kp LC(V)                      &kp LC(C)  &tog 6           &tog 9           &tog 7           &trans          &trans
-&msc SCRL_DOWN &trans     &trans         &trans          &trans    &trans    &trans        &trans &kp LC(V)  &mmv MOVE_LEFT   &mmv MOVE_UP     &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans
-                          &trans         &trans          &trans    &trans    &trans        &trans &trans     &mkp LCLK        &mkp RCLK        &mkp MCLK
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
+&msc SCRL_UP    &trans  &tog 7          &tog 9          &tog 6           &kp LC(V)                          &kp LC(C)  &tog 6          &tog 9        &tog 7          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
             >;
         };
 
@@ -245,12 +248,13 @@
             label = "mouse_fast";
 
             // FAST SPEED (Layer 7) - Fast mouse movement (4x speed)
+
             bindings = <
-&trans     &trans         &trans         &msc SCRL_LEFT  &msc SCRL_UP &msc SCRL_RIGHT                &trans     &trans           &trans           &trans           &trans          &trans
-&trans     &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &kp LC(C)                  &kp LC(X)  &msc SCRL_LEFT   &msc SCRL_UP     &msc SCRL_DOWN   &msc SCRL_RIGHT &trans
-&msc SCRL_UP &trans       &tog 7         &tog 9          &tog 6    &kp LC(V)                      &kp LC(C)  &tog 6           &tog 9           &tog 7           &trans          &trans
-&msc SCRL_DOWN &trans     &trans         &trans          &trans    &trans    &trans        &trans &kp LC(V)  &mmv MOVE_LEFT   &mmv MOVE_UP     &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans
-                          &trans         &trans          &trans    &trans    &trans        &trans &trans     &mkp LCLK        &mkp RCLK        &mkp MCLK
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
+&msc SCRL_UP    &trans  &tog 7          &tog 9          &tog 6           &kp LC(V)                          &kp LC(C)  &tog 6          &tog 9        &tog 7          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
             >;
         };
 
@@ -258,12 +262,13 @@
             label = "mouse_fine";
 
             // FINE SPEED (Layer 8) - Very precise mouse movement (1/16x speed)
+
             bindings = <
-&trans     &trans         &trans         &msc SCRL_LEFT  &msc SCRL_UP &msc SCRL_RIGHT                &trans     &trans           &trans           &trans           &trans          &trans
-&trans     &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &kp LC(C)                  &kp LC(X)  &msc SCRL_LEFT   &msc SCRL_UP     &msc SCRL_DOWN   &msc SCRL_RIGHT &trans
-&msc SCRL_UP &trans       &tog 7         &tog 9          &tog 6    &kp LC(V)                      &kp LC(C)  &tog 6           &tog 9           &tog 7           &trans          &trans
-&msc SCRL_DOWN &trans     &trans         &trans          &trans    &trans    &trans        &trans &kp LC(V)  &mmv MOVE_LEFT   &mmv MOVE_UP     &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans
-                          &trans         &trans          &trans    &trans    &trans        &trans &trans     &mkp LCLK        &mkp RCLK        &mkp MCLK
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
+&msc SCRL_UP    &trans  &tog 7          &tog 9          &tog 6           &kp LC(V)                          &kp LC(C)  &tog 6          &tog 9        &tog 7          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
             >;
         };
 
@@ -271,18 +276,20 @@
             label = "mouse_slow";
 
             // SLOW SPEED (Layer 9) - Slow mouse movement (1/4x speed)
+
             bindings = <
-&trans     &trans         &trans         &msc SCRL_LEFT  &msc SCRL_UP &msc SCRL_RIGHT                &trans     &trans           &trans           &trans           &trans          &trans
-&trans     &trans         &mmv MOVE_LEFT &mmv MOVE_DOWN  &mmv MOVE_RIGHT &kp LC(C)                  &kp LC(X)  &msc SCRL_LEFT   &msc SCRL_UP     &msc SCRL_DOWN   &msc SCRL_RIGHT &trans
-&msc SCRL_UP &trans       &tog 7         &tog 9          &tog 6    &kp LC(V)                      &kp LC(C)  &tog 6           &tog 9           &tog 7           &trans          &trans
-&msc SCRL_DOWN &trans     &trans         &trans          &trans    &trans    &trans        &trans &kp LC(V)  &mmv MOVE_LEFT   &mmv MOVE_UP     &mmv MOVE_DOWN   &mmv MOVE_RIGHT &trans
-                          &trans         &trans          &trans    &trans    &trans        &trans &trans     &mkp LCLK        &mkp RCLK        &mkp MCLK
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
+&msc SCRL_UP    &trans  &tog 7          &tog 9          &tog 6           &kp LC(V)                          &kp LC(C)  &tog 6          &tog 9        &tog 7          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
             >;
         };
     };
 };
 
 // Mouse behavior configuration (outside main keymap)
+
 &mmv {
     delay-ms = <MOUSE_MOTION_DELAY>;
     acceleration-exponent = <MOUSE_MOTION_ACCELERATION_EXPONENT>;
@@ -296,6 +303,7 @@
 };
 
 // Input processors for mouse speed scaling
+
 / {
     input_processors {
         zip_xy_scaler: zip_xy_scaler {
@@ -309,19 +317,23 @@
 };
 
 // Configure input listeners for different speed layers
+
 &mmv_input_listener {
     warp {
         layers = <6>;
         input-processors = <&zip_xy_scaler MOUSE_SCALER_WARP>;
     };
+
     fast {
         layers = <7>;
         input-processors = <&zip_xy_scaler MOUSE_SCALER_FAST>;
     };
+
     fine {
         layers = <8>;
         input-processors = <&zip_xy_scaler MOUSE_SCALER_FINE>;
     };
+
     slow {
         layers = <9>;
         input-processors = <&zip_xy_scaler MOUSE_SCALER_SLOW>;
