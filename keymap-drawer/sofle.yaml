@@ -12,7 +12,7 @@ layers:
   - '8'
   - '9'
   - '0'
-  - DELETE
+  - '='
   - TAB
   - Q
   - W
@@ -24,7 +24,7 @@ layers:
   - I
   - O
   - P
-  - BSPC
+  - '-'
   - ESCAPE
   - {t: A, h: LCTRL}
   - {t: S, h: LALT}
@@ -43,7 +43,7 @@ layers:
   - C
   - V
   - B
-  - MUTE
+  - ''
   - ''
   - N
   - M
@@ -58,9 +58,9 @@ layers:
   - {t: TAB, h: number}
   - {t: TAB, h: mouse}
   - {t: SPACE, h: symbol}
-  - RCTRL
-  - RALT
-  - RGUI
+  - ''
+  - '['
+  - ']'
   symbol:
   - '`'
   - ']'
