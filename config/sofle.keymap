@@ -121,7 +121,9 @@
                          &kp LCTRL   &kp LALT    &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &lt_repeat 5 TAB  &lt_repeat 1 SPACE  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         lower_layer {
