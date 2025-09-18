@@ -35,6 +35,9 @@ echo ""
 echo "🎨 Keymap visualization:"
 if [ -f "keymap-drawer/sofle.svg" ]; then
     echo "  ✅ keymap-drawer/sofle.svg"
+    # Copy to root directory for easier access
+    cp keymap-drawer/sofle.svg sofle.svg
+    echo "  📋 Copied to sofle.svg for easy viewing"
 else
     echo "  ❌ SVG generation failed"
 fi

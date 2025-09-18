@@ -27,4 +27,8 @@ services:
     # Install keymap-drawer and generate SVG from keymap
     command: >
       sh -c "pip install keymap-drawer &&
-             keymap -c /sofle.yaml draw /config/sofle.keymap --output /output/sofle.svg"
+             keymap parse -z /config/sofle.keymap > /tmp/sofle_parsed.yaml &&
+             echo 'draw_config:' > /tmp/draw_config.yaml &&
+             echo '  n_columns: 1' >> /tmp/draw_config.yaml &&
+             echo '  separate_combo_diagrams: true' >> /tmp/draw_config.yaml &&
+             keymap -c /tmp/draw_config.yaml draw /tmp/sofle_parsed.yaml --output /output/sofle.svg"
