@@ -1,0 +1,23 @@
+# Ignore build artifacts
+build/
+*.uf2
+
+# Ignore ZMK directory (mounted separately)
+zmk/
+
+# Ignore Git files
+.git/
+.gitignore
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore Docker files (they're already in the image)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Ignore documentation that's not needed for building
+README.md
+keymap-drawer/

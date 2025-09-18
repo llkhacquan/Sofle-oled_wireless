@@ -1,5 +1,9 @@
 glove80-keymaps/
 
+# Build artifacts and dependencies
+build/
+zmk/
+
 # macOS system files
 .DS_Store
 .DS_Store?

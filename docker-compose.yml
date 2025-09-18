@@ -1,0 +1,30 @@
+services:
+  zmk-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sofle-zmk-builder
+    volumes:
+      # Mount our config directory
+      - ./config:/workspace/config
+      # Mount our build output directory
+      - ./build:/workspace/build
+      # Mount local ZMK directory (will be created by build script)
+      - ./zmk:/zmk-workspace
+    working_dir: /zmk-workspace
+    # Build firmware only for now
+    command: ["build-zmk", "/workspace/config", "/workspace/build"]
+
+  keymap-drawer:
+    image: python:3.12-slim
+    container_name: sofle-keymap-drawer
+    volumes:
+      # Mount config and keymap-drawer directories
+      - ./config:/config:ro
+      - ./sofle.yaml:/sofle.yaml:ro
+      - ./keymap-drawer:/output
+    working_dir: /
+    # Install keymap-drawer and generate SVG from keymap
+    command: >
+      sh -c "pip install keymap-drawer &&
+             keymap -c /sofle.yaml draw /config/sofle.keymap --output /output/sofle.svg"
