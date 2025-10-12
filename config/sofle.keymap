@@ -133,15 +133,15 @@
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  ]  |  (  |  )   |  ;   |  .   |                   |      |      |       |      |       |       |
             // |   [   |  !  |  {  |  }   |  ,   |  ?   |                   |   `  |  ←   |   ↑   |  ↓   |   →   |       |
-            // |   #   |  ^  |  =  |  _   |  $   |  *   |                   |   "  | BSPC | SPACE | TAB  | ENTER |       |
+            // |   #   |  ^  |  =  |  _   |  $   |  *   |                   |   "  | BSPC |  TAB  | SPACE| ENTER |       |
             // |   ~   |  <  |  |  |  -   |  >   |  /   |   \   |  |   .   |   '  | DEL  | S-TAB | INS  |  ESC  |       |
             //               |     |      |      |      |       |  |       | HOME | PGUP | PGDN  | END  |
 
             bindings = <
-&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR           &kp SEMI   &kp DOT                            &trans     &trans     &trans       &trans    &trans     &trans
-&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC           &kp COMMA  &kp QMARK                          &kp GRAVE  &kp LEFT   &kp UP       &kp DOWN  &kp RIGHT  &trans
-&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER          &kp DLLR   &kp ASTRK                          &kp DQT    &kp BSPC   &kp SPACE    &kp TAB   &kp ENTER  &trans
-&kp TILDE  &kp LT     &kp PIPE   &kp MINUS          &kp GT     &kp FSLH     &kp BSLH     &kp DOT  &kp SQT    &kp DEL    &kp LS(TAB)  &kp INS   &kp ESC    &trans
+&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR           &kp SEMI   &kp DOT                            &trans     &trans     &trans       &trans      &trans     &trans
+&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC           &kp COMMA  &kp QMARK                          &kp GRAVE  &kp LEFT   &kp UP       &kp DOWN    &kp RIGHT  &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER          &kp DLLR   &kp ASTRK                          &kp DQT    &kp BSPC   &kp TAB      &kp SPACE   &kp ENTER  &trans
+&kp TILDE  &kp LT     &kp PIPE   &kp MINUS          &kp GT     &kp FSLH     &kp BSLH     &kp DOT  &kp SQT    &kp DEL    &kp LS(TAB)  &kp INS     &kp ESC    &trans
                       &kp SQT    &kp DOUBLE_QUOTES  &kp PLUS   &kp PERCENT  &kp COLON    &trans   &kp HOME   &kp PG_UP  &kp PG_DN    &kp END
             >;
 
