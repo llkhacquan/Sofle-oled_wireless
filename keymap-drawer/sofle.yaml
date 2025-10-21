@@ -94,8 +94,8 @@ layers:
   - '*'
   - '"'
   - BSPC
-  - SPACE
   - TAB
+  - SPACE
   - ENTER
   - {t: ▽, type: trans}
   - '~'
@@ -311,7 +311,7 @@ layers:
   - {t: ▽, type: trans}
   - '&msc SCRL_LEFT'
   - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
+  - Ctl+X
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -330,16 +330,16 @@ layers:
   - '&msc SCRL_DOWN'
   - '&msc SCRL_RIGHT'
   - {t: ▽, type: trans}
-  - '&msc SCRL_UP'
   - {t: ▽, type: trans}
-  - {t: mouse_fast, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_warp, h: toggle}
+  - {t: ▽, type: trans}
+  - '&msc SCRL_DOWN'
+  - mouse_fast
+  - {t: ▽, type: trans}
   - Ctl+V
   - Ctl+C
-  - {t: mouse_warp, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_fast, h: toggle}
+  - mouse_fast
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&msc SCRL_DOWN'
@@ -351,9 +351,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Ctl+V
-  - '&mmv MOVE_LEFT'
+  - '&mkp LCLK'
   - '&mmv MOVE_UP'
-  - '&mmv MOVE_DOWN'
+  - '&mkp RCLK'
   - '&mmv MOVE_RIGHT'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -363,77 +363,16 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - '&mkp LCLK'
-  - '&mkp RCLK'
-  - '&mkp MCLK'
-  mouse_warp:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - '&mmv MOVE_LEFT'
   - '&mmv MOVE_DOWN'
   - '&mmv MOVE_RIGHT'
-  - Ctl+C
-  - Ctl+X
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - '&msc SCRL_UP'
-  - {t: ▽, type: trans}
-  - {t: mouse_fast, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_warp, h: toggle}
-  - Ctl+V
-  - Ctl+C
-  - {t: mouse_warp, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_fast, h: toggle}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Ctl+V
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_UP'
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mkp LCLK'
-  - '&mkp RCLK'
-  - '&mkp MCLK'
   mouse_fast:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&msc SCRL_LEFT'
   - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
+  - Ctl+X
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -452,16 +391,16 @@ layers:
   - '&msc SCRL_DOWN'
   - '&msc SCRL_RIGHT'
   - {t: ▽, type: trans}
-  - '&msc SCRL_UP'
   - {t: ▽, type: trans}
-  - {t: mouse_fast, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_warp, h: toggle}
+  - {t: ▽, type: trans}
+  - '&msc SCRL_DOWN'
+  - {type: held}
+  - {t: ▽, type: trans}
   - Ctl+V
   - Ctl+C
-  - {t: mouse_warp, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_fast, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&msc SCRL_DOWN'
@@ -473,70 +412,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Ctl+V
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_UP'
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - '&mkp LCLK'
-  - '&mkp RCLK'
-  - '&mkp MCLK'
-  mouse_fine:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_RIGHT'
-  - Ctl+C
-  - Ctl+X
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - '&msc SCRL_UP'
-  - {t: ▽, type: trans}
-  - {t: mouse_fast, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_warp, h: toggle}
-  - Ctl+V
-  - Ctl+C
-  - {t: mouse_warp, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_fast, h: toggle}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Ctl+V
-  - '&mmv MOVE_LEFT'
   - '&mmv MOVE_UP'
-  - '&mmv MOVE_DOWN'
+  - '&mkp RCLK'
   - '&mmv MOVE_RIGHT'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -544,72 +422,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mkp LCLK'
-  - '&mkp RCLK'
-  - '&mkp MCLK'
-  mouse_slow:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - '&mmv MOVE_LEFT'
   - '&mmv MOVE_DOWN'
   - '&mmv MOVE_RIGHT'
-  - Ctl+C
-  - Ctl+X
-  - '&msc SCRL_LEFT'
-  - '&msc SCRL_UP'
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_RIGHT'
-  - {t: ▽, type: trans}
-  - '&msc SCRL_UP'
-  - {t: ▽, type: trans}
-  - {t: mouse_fast, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_warp, h: toggle}
-  - Ctl+V
-  - Ctl+C
-  - {t: mouse_warp, h: toggle}
-  - {t: mouse_slow, h: toggle}
-  - {t: mouse_fast, h: toggle}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&msc SCRL_DOWN'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Ctl+V
-  - '&mmv MOVE_LEFT'
-  - '&mmv MOVE_UP'
-  - '&mmv MOVE_DOWN'
-  - '&mmv MOVE_RIGHT'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mkp LCLK'
-  - '&mkp RCLK'
-  - '&mkp MCLK'
 combos:
 - p: [2, 5]
   k: '&bootloader'
