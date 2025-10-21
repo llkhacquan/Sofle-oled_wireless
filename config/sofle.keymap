@@ -211,39 +211,24 @@
         mouse_layer {
             label = "mouse";
 
-            // MOUSE LAYER - Based on glove80 layout (adjusted for Sofle row alignment)
-            // Hold speed modifier keys (SLOW/FAST/WARP/FINE) to temporarily activate speed layers
+            // MOUSE LAYER - Simplified with normal and fast speeds only
+            // Hold FAST key to temporarily activate fast speed layer
             // ------------------------------------------------------------------------------------------------------------
-            // |       |      | SCR_U| WARP | FINE | CUT  |                   |       |      |      |      |      |       |
-            // |       | M_LT | M_DN | M_RT |      |      |                   | CUT   | SCR_L| SCR_U| SCR_D| SCR_R |       |
-            // |       | SCR_D| SLOW | FAST | WARP |      |                   | COPY  | FAST | WARP | SLOW | FINE |       |
-            // |       |      |      |      |      |      |       |  |       | PASTE| M_LT | M_UP | M_DN | M_RT  |       |
-            //                |      |      |      |      |       |  |       |      | LMB  | RMB  | MMB  |
+            // |       |      | SCR_U|      |      | CUT  |                   |       |      |      |      |      |       |
+            // |       | M_LT | M_DN | M_RT |      | COPY |                   | CUT   | SCR_L| SCR_U| SCR_D| SCR_R |       |
+            // |       | SCR_D|      | FAST |      | PASTE|                   | COPY  | FAST |      |      |      |       |
+            // | SCR_D |      |      |      |      |      |       |  |       | PASTE| LMB  | M_UP | RMB  | M_RT |       |
+            //                |      |      |      |      |       |  |       |      | M_L  | M_DN | M_RT |
 
             bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &kp LC(X)                          &trans     &trans          &trans        &trans          &trans           &trans
 &trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&msc SCRL_UP    &trans  &mo 9           &mo 7           &mo 6            &kp LC(V)                          &kp LC(C)  &mo 6           &mo 7         &mo 9           &mo 8            &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
+&trans          &trans  &msc SCRL_DOWN  &mo 6           &trans           &kp LC(V)                          &kp LC(C)  &mo 6           &trans        &trans          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mkp LCLK       &mmv MOVE_UP  &mkp RCLK       &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        mouse_warp_layer {
-            label = "mouse_warp";
-
-            // WARP SPEED (Layer 6) - Very fast mouse movement (12x speed)
-            // Activated only while holding WARP key on mouse layer
-
-            bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
-&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&msc SCRL_UP    &trans  &mo 9           &mo 7           &trans           &kp LC(V)                          &kp LC(C)  &trans          &mo 7         &mo 9           &mo 8            &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
-            >;
         };
 
         mouse_fast_layer {
@@ -253,41 +238,11 @@
             // Activated only while holding FAST key on mouse layer
 
             bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
+&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &kp LC(X)                          &trans     &trans          &trans        &trans          &trans           &trans
 &trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&msc SCRL_UP    &trans  &mo 9           &trans          &mo 6            &kp LC(V)                          &kp LC(C)  &mo 6           &trans        &mo 9           &mo 8            &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
-            >;
-        };
-
-        mouse_fine_layer {
-            label = "mouse_fine";
-
-            // FINE SPEED (Layer 8) - Very precise mouse movement (1/16x speed)
-            // Activated only while holding FINE key on mouse layer
-
-            bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
-&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&msc SCRL_UP    &trans  &mo 9           &mo 7           &mo 6            &kp LC(V)                          &kp LC(C)  &mo 6           &mo 7         &mo 9           &trans           &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
-            >;
-        };
-
-        mouse_slow_layer {
-            label = "mouse_slow";
-
-            // SLOW SPEED (Layer 9) - Slow mouse movement (1/4x speed)
-            // Activated only while holding SLOW key on mouse layer
-
-            bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &msc SCRL_RIGHT                    &trans     &trans          &trans        &trans          &trans           &trans
-&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&msc SCRL_UP    &trans  &trans          &mo 7           &mo 6            &kp LC(V)                          &kp LC(C)  &mo 6           &mo 7         &trans          &mo 8            &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mkp LCLK       &mkp RCLK     &mkp MCLK
+&trans          &trans  &msc SCRL_DOWN  &trans          &trans           &kp LC(V)                          &kp LC(C)  &trans          &trans        &trans          &trans           &trans
+&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mkp LCLK       &mmv MOVE_UP  &mkp RCLK       &mmv MOVE_RIGHT  &trans
+                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT
             >;
         };
     };
@@ -321,26 +276,11 @@
     };
 };
 
-// Configure input listeners for different speed layers
+// Configure input listener for fast speed layer
 
 &mmv_input_listener {
-    warp {
-        layers = <6>;
-        input-processors = <&zip_xy_scaler MOUSE_SCALER_WARP>;
-    };
-
     fast {
-        layers = <7>;
+        layers = <6>;
         input-processors = <&zip_xy_scaler MOUSE_SCALER_FAST>;
-    };
-
-    fine {
-        layers = <8>;
-        input-processors = <&zip_xy_scaler MOUSE_SCALER_FINE>;
-    };
-
-    slow {
-        layers = <9>;
-        input-processors = <&zip_xy_scaler MOUSE_SCALER_SLOW>;
     };
 };
