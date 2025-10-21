@@ -95,6 +95,7 @@
             quick-tap-ms = <200>;  // glove80 REPEAT_DECAY for tap-then-hold auto-repeat
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
+            hold-while-undecided;  // Send modifier immediately for encoder/mouse compatibility
         };
     };
 
