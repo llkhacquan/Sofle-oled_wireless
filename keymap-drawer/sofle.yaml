@@ -37,7 +37,7 @@ layers:
   - {t: L, h: RALT}
   - {t: ;, h: RCTRL}
   - ''''
-  - LSHFT
+  - '&td_shift_caps'
   - Z
   - X
   - C
@@ -50,7 +50,7 @@ layers:
   - ','
   - .
   - /
-  - RSHFT
+  - '&td_shift_caps'
   - LCTRL
   - LALT
   - LGUI
