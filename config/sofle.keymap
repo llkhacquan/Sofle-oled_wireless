@@ -177,18 +177,18 @@
 
             // SYMBOL LAYER - Programming Symbols (adapted from glove80)
             // ------------------------------------------------------------------------------------------------------------
-            // |   `   |  ]  |  (  |  )   |  ;   |  .   |                   |      |      |       |      |       |       |
-            // |   [   |  !  |  {  |  }   |  ,   |  ?   |                   |   `  |  ←   |   ↑   |  ↓   |   →   |       |
-            // |   #   |  ^  |  =  |  _   |  $   |  *   |                   |   "  | BSPC |  TAB  | SPACE| ENTER |       |
-            // |   ~   |  <  |  |  |  -   |  >   |  /   |   \   |  |   .   |   '  | DEL  | S-TAB | INS  |  ESC  |       |
-            //               |     |      |      |      |       |  |       | HOME | PGUP | PGDN  | END  |
+            // |   `   |  ,   |  (   |  )   |  ;   |  .   |                   |      |      |       |      |       |       |
+            // |   !   |  [   |  {   |  }   |  ]   |  ?   |                   |  `   | DEL  | S-TAB | INS  |  ESC  |       |
+            // |   #   |  ^   |  =   |  _   |  $   |  *   |                   |  "   | BSPC |  TAB  | SPC  | ENTER |       |
+            // |   ~   |  <   |  |   |  -   |  >   |  /   |   \   |   |   .   |  '   | SHFT | GUI   | ALT  |  CTL  |       |
+            //                |  '   |  "   |  +   |  %   |   :   |   |       |      |      |  END  | PGUP |
 
             bindings = <
-&kp GRAVE  &kp RBKT   &kp LPAR   &kp RPAR           &kp SEMI   &kp DOT                            &trans     &trans     &trans       &trans      &trans     &trans
-&kp LBKT   &kp EXCL   &kp LBRC   &kp RBRC           &kp COMMA  &kp QMARK                          &kp GRAVE  &kp LEFT   &kp UP       &kp DOWN    &kp RIGHT  &trans
-&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER          &kp DLLR   &kp ASTRK                          &kp DQT    &kp BSPC   &kp TAB      &kp SPACE   &kp ENTER  &trans
-&kp TILDE  &kp LT     &kp PIPE   &kp MINUS          &kp GT     &kp FSLH     &kp BSLH     &kp DOT  &kp SQT    &kp DEL    &kp LS(TAB)  &kp INS     &kp ESC    &trans
-                      &kp SQT    &kp DOUBLE_QUOTES  &kp PLUS   &kp PERCENT  &kp COLON    &trans   &kp HOME   &kp PG_UP  &kp PG_DN    &kp END
+&kp GRAVE  &kp COMMA  &kp LPAR   &kp RPAR   &kp SEMI  &kp DOT                               &trans     &trans     &trans       &trans    &trans     &trans
+&kp EXCL   &kp LBKT   &kp LBRC   &kp RBRC   &kp RBKT  &kp QMARK                             &kp GRAVE  &kp DEL    &kp LS(TAB)  &kp INS   &kp ESC    &trans
+&kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR  &kp ASTRK                             &kp DQT    &kp BSPC   &kp TAB      &kp SPACE &kp ENTER  &trans
+&kp TILDE  &kp LT     &kp PIPE   &kp MINUS  &kp GT    &kp FSLH   &kp BSLH     &kp DOT       &kp SQT    &kp RSHFT  &kp RGUI     &kp RALT  &kp RCTRL  &trans
+                      &kp SQT    &kp DQT    &kp PLUS   &kp PRCNT    &kp COLON    &trans        &trans     &trans       &kp END   &kp PG_UP
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
