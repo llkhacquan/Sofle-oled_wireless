@@ -121,7 +121,6 @@
             quick-tap-ms = <200>;  // Enable tap-then-hold repeat
             bindings = <&mo>, <&kp>;
 
-            retro-tap;  // Allow tap on hold-release (forgiveness)
             hold-while-undecided;  // Activate layer immediately for OLED and conditional layers
         };
 
