@@ -68,6 +68,45 @@
             key-positions = <9 6>;
             bindings = <&bootloader>;
         };
+
+        // Bluetooth combos: Z + B + number (all on left half)
+        // Z = 37, B = 41, ` = 0, 1-5 = 1-5
+
+        combo_bt_clear {
+            timeout-ms = <300>;
+            key-positions = <37 41 0>;
+            bindings = <&bt BT_CLR>;
+        };
+
+        combo_bt_sel_0 {
+            timeout-ms = <300>;
+            key-positions = <37 41 1>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
+        combo_bt_sel_1 {
+            timeout-ms = <300>;
+            key-positions = <37 41 2>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        combo_bt_sel_2 {
+            timeout-ms = <300>;
+            key-positions = <37 41 3>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
+        combo_bt_sel_3 {
+            timeout-ms = <300>;
+            key-positions = <37 41 4>;
+            bindings = <&bt BT_SEL 3>;
+        };
+
+        combo_bt_sel_4 {
+            timeout-ms = <300>;
+            key-positions = <37 41 5>;
+            bindings = <&bt BT_SEL 4>;
+        };
     };
 
     behaviors {
@@ -83,6 +122,7 @@
             bindings = <&mo>, <&kp>;
 
             retro-tap;  // Allow tap on hold-release (forgiveness)
+            hold-while-undecided;  // Activate layer immediately for OLED and conditional layers
         };
 
         // Home row mod-tap with glove80-style auto-repeat
@@ -124,7 +164,7 @@
 &kp GRAVE       &kp N1       &kp N2      &kp N3      &kp N4       &kp N5                                                        &kp N6              &kp N7       &kp N8            &kp N9             &kp N0          &kp EQUAL
 &kp TAB         &kp Q        &kp W       &kp E       &kp R        &kp T                                                         &kp Y               &kp U        &kp I             &kp O              &kp P           &kp MINUS
 &kp ESCAPE      &hm LCTRL A  &hm LALT S  &hm LGUI D  &hm LSHFT F  &kp G                                                         &kp H               &hm RSHFT J  &hm RGUI K        &hm RALT L         &hm RCTRL SEMI  &kp SQT
-&td_shift_caps  &kp Z        &kp X       &kp C       &kp V        &kp B                   &none               &none             &kp N               &kp M        &kp COMMA         &kp DOT            &kp FSLH        &td_shift_caps
+&td_shift_caps  &kp Z        &kp X       &kp C       &kp V        &kp B                   &kp C_MUTE          &none             &kp N               &kp M        &kp COMMA         &kp DOT            &kp FSLH        &td_shift_caps
                          &kp LCTRL   &kp LALT    &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &lt_repeat 5 TAB  &lt_repeat 1 SPACE  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
