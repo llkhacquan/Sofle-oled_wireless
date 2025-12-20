@@ -34,17 +34,17 @@ echo "Building ZMK firmware..."
 
 # Build configurations from build.yaml
 echo "Building sofle_left..."
-west build -s app -d build/sofle_left -b nice_nano_v2 -- \
+west build -s app -d build/sofle_left -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
     -DSHIELD=sofle_left
 
 echo "Building sofle_right..."
-west build -s app -d build/sofle_right -b nice_nano_v2 -- \
+west build -s app -d build/sofle_right -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
     -DSHIELD=sofle_right
 
 echo "Building settings_reset..."
-west build -s app -d build/settings_reset -b nice_nano_v2 -- \
+west build -s app -d build/settings_reset -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
     -DSHIELD=settings_reset
 
