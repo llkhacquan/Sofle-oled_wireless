@@ -43,7 +43,7 @@ layers:
   - C
   - V
   - B
-  - ''
+  - MUTE
   - ''
   - N
   - M
@@ -63,7 +63,7 @@ layers:
   - ']'
   symbol:
   - '`'
-  - ']'
+  - ','
   - (
   - )
   - ;
@@ -74,17 +74,17 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '['
   - '!'
+  - '['
   - '{'
   - '}'
-  - ','
+  - ']'
   - '?'
   - '`'
-  - LEFT
-  - UP
-  - DOWN
-  - RIGHT
+  - DEL
+  - Sft+TAB
+  - INS
+  - ESC
   - {t: ▽, type: trans}
   - '#'
   - ^
@@ -107,10 +107,10 @@ layers:
   - \
   - .
   - ''''
-  - DEL
-  - Sft+TAB
-  - INS
-  - ESC
+  - RSHFT
+  - RGUI
+  - RALT
+  - RCTRL
   - {t: ▽, type: trans}
   - ''''
   - '"'
@@ -118,10 +118,10 @@ layers:
   - '%'
   - ':'
   - {t: ▽, type: trans}
-  - {t: HOME, type: held}
-  - PG UP
-  - PG DN
+  - {type: held}
+  - {t: ▽, type: trans}
   - END
+  - PG UP
   cursor:
   - {t: ▽, type: trans}
   - ESC
@@ -432,3 +432,15 @@ combos:
   k: '&bootloader'
 - p: [9, 6]
   k: '&bootloader'
+- p: [37, 41, 0]
+  k: BT CLR
+- p: [37, 41, 1]
+  k: {t: BT, h: '0'}
+- p: [37, 41, 2]
+  k: {t: BT, h: '1'}
+- p: [37, 41, 3]
+  k: {t: BT, h: '2'}
+- p: [37, 41, 4]
+  k: {t: BT, h: '3'}
+- p: [37, 41, 5]
+  k: {t: BT, h: '4'}
