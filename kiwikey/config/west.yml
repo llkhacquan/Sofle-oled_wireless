@@ -1,0 +1,34 @@
+manifest:
+
+  defaults:
+    revision: v0.2
+
+  remotes:
+    # Default ZMK
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    # dongle_display
+    - name: kiwikey
+      url-base: https://github.com/kiwikey
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
+    # support nice_oled and nice_epaper
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
+
+  projects:
+    # Default ZMK
+    - name: zmk
+      remote: zmkfirmware
+      import: app/west.yml
+    # dongle_display
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
+    # support nice_oled and nice_epaper
+    - name: zmk-nice-oled
+      remote: mctechnology17
+      revision: main
+
+  self:
+    path: config

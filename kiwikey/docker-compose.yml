@@ -1,0 +1,28 @@
+services:
+  zmk-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kiwikey-zmk-builder
+    volumes:
+      - ./config:/workspace/config
+      - ./boards:/workspace/boards
+      - ./build:/workspace/build
+      - ./zmk:/zmk-workspace
+    working_dir: /zmk-workspace
+    command: ["build-zmk", "/workspace/config", "/workspace/build", "/workspace/boards"]
+
+  keymap-drawer:
+    image: python:3.12-slim
+    container_name: kiwikey-keymap-drawer
+    volumes:
+      - ./config:/config:ro
+      - ./keymap-drawer:/output
+    working_dir: /
+    command: >
+      sh -c "pip install keymap-drawer &&
+             keymap parse -z /config/sofle.keymap > /tmp/sofle_parsed.yaml &&
+             echo 'draw_config:' > /tmp/draw_config.yaml &&
+             echo '  n_columns: 1' >> /tmp/draw_config.yaml &&
+             echo '  separate_combo_diagrams: true' >> /tmp/draw_config.yaml &&
+             keymap -c /tmp/draw_config.yaml draw /tmp/sofle_parsed.yaml --output /output/sofle.svg"
