@@ -36,15 +36,17 @@ fi
 
 echo "Building ZMK firmware for Kiwikey Sofle..."
 
-# Use ZMK built-in sofle shields (no extra modules needed for shields)
+# Use kiwikey custom shields with extra modules
 echo "Building sofle_left..."
 west build -s app -d build/sofle_left -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
+    -DZMK_EXTRA_MODULES="$BOARDS_DIR" \
     -DSHIELD=sofle_left
 
 echo "Building sofle_right..."
 west build -s app -d build/sofle_right -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
+    -DZMK_EXTRA_MODULES="$BOARDS_DIR" \
     -DSHIELD=sofle_right
 
 echo "Building settings_reset..."
