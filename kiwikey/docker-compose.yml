@@ -5,12 +5,10 @@ services:
       dockerfile: Dockerfile
     container_name: kiwikey-zmk-builder
     volumes:
-      - ./config:/workspace/config
-      - ./boards:/workspace/boards
-      - ./build:/workspace/build
+      - .:/workspace
       - ./zmk:/zmk-workspace
     working_dir: /zmk-workspace
-    command: ["build-zmk", "/workspace/config", "/workspace/build", "/workspace/boards"]
+    command: ["build-zmk", "/workspace/config", "/workspace/build", "/workspace"]
 
   keymap-drawer:
     image: python:3.12-slim

@@ -21,48 +21,42 @@ fi
 cd /zmk-workspace
 
 echo "Initializing ZMK workspace..."
-if [ ! -f .west/config ]; then
+if [ ! -f .west/config ] || [ ! -d zephyr ]; then
+    rm -rf .west
     west init -l app/
     west update
 fi
 
-# Add custom boards if provided
+# Add custom boards/shields from the config directory
 EXTRA_MODULES=""
-if [ -n "$BOARDS_DIR" ] && [ -d "$BOARDS_DIR" ]; then
+if [ -n "$BOARDS_DIR" ] && [ -f "$BOARDS_DIR/zephyr/module.yml" ]; then
     EXTRA_MODULES="-DZMK_EXTRA_MODULES=$BOARDS_DIR"
+    echo "Using extra modules from: $BOARDS_DIR"
 fi
 
 echo "Building ZMK firmware for Kiwikey Sofle..."
 
-echo "Building sofle_left_peripheral..."
-west build -s app -d build/sofle_left -b nice_nano_v2 -- \
+# Use ZMK built-in sofle shields (no extra modules needed for shields)
+echo "Building sofle_left..."
+west build -s app -d build/sofle_left -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
-    -DSHIELD=sofle_left_peripheral \
-    $EXTRA_MODULES
+    -DSHIELD=sofle_left
 
 echo "Building sofle_right..."
-west build -s app -d build/sofle_right -b nice_nano_v2 -- \
+west build -s app -d build/sofle_right -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
-    -DSHIELD=sofle_right \
-    $EXTRA_MODULES
-
-echo "Building sofle_dongle..."
-west build -s app -d build/sofle_dongle -b nice_nano_v2 -- \
-    -DZMK_CONFIG="$CONFIG_DIR" \
-    -DSHIELD="sofle_dongle dongle_display" \
-    $EXTRA_MODULES
+    -DSHIELD=sofle_right
 
 echo "Building settings_reset..."
-west build -s app -d build/settings_reset -b nice_nano_v2 -- \
+west build -s app -d build/settings_reset -b nice_nano -- \
     -DZMK_CONFIG="$CONFIG_DIR" \
     -DSHIELD=settings_reset
 
 # Copy .uf2 files to output directory
 mkdir -p "$OUTPUT_DIR"
-cp build/sofle_left/zephyr/zmk.uf2 "$OUTPUT_DIR/sofle_left_peripheral-nice_nano_v2-zmk.uf2"
-cp build/sofle_right/zephyr/zmk.uf2 "$OUTPUT_DIR/sofle_right-nice_nano_v2-zmk.uf2"
-cp build/sofle_dongle/zephyr/zmk.uf2 "$OUTPUT_DIR/sofle_dongle-nice_nano_v2-zmk.uf2"
-cp build/settings_reset/zephyr/zmk.uf2 "$OUTPUT_DIR/settings_reset-nice_nano_v2-zmk.uf2"
+cp build/sofle_left/zephyr/zmk.uf2 "$OUTPUT_DIR/sofle_left-nice_nano-zmk.uf2"
+cp build/sofle_right/zephyr/zmk.uf2 "$OUTPUT_DIR/sofle_right-nice_nano-zmk.uf2"
+cp build/settings_reset/zephyr/zmk.uf2 "$OUTPUT_DIR/settings_reset-nice_nano-zmk.uf2"
 
 echo "Firmware built successfully!"
 ls -la "$OUTPUT_DIR"/*.uf2
