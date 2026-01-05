@@ -1,8 +1,7 @@
-glove80-keymaps/
-
-# Build artifacts and dependencies
-build/
-zmk/
+# Build artifacts and dependencies (in subdirectories)
+**/build/
+**/zmk/
+**/glove80-keymaps/
 
 # macOS system files
 .DS_Store
