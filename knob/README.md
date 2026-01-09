@@ -16,6 +16,11 @@ All modifier keys accessible from home row without moving hands:
 - **Left**: A(Ctrl), S(Alt), D(Cmd), F(Shift)
 - **Right**: J(Shift), K(Cmd), L(Alt), ;(Ctrl)
 
+**Bilateral design** prevents misfires during fast typing:
+- Same-hand combos (e.g., `s` + `t`) → just types "st"
+- Cross-hand combos (e.g., `a` + `j`) → Ctrl+J
+- Thumb combos always work (e.g., `a` + `space`) → Ctrl+Space
+
 ### Glove80-Style Behaviors
 - **Tap-then-hold auto-repeat**: Fast deletion/spacing without losing layer access
 - **Layer-tap thumb keys**: Hold for layers, tap for keys
@@ -64,8 +69,8 @@ All modifier keys accessible from home row without moving hands:
 
 ### No Physical Buttons Needed!
 Enter bootloader mode using key combinations:
-- **Left half**: Press `1` + `5` within 500ms
-- **Right half**: Press `0` + `6` within 500ms
+- **Left half**: Press `2` + `5` within 500ms
+- **Right half**: Press `9` + `6` within 500ms
 
 ### Usage
 1. Press appropriate combo → Enters bootloader mode
