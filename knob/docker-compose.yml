@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: sofle-zmk-builder
+    container_name: knob-zmk-builder
     volumes:
       # Mount our config directory
       - ./config:/workspace/config
@@ -17,7 +17,7 @@ services:
 
   keymap-drawer:
     image: python:3.12-slim
-    container_name: sofle-keymap-drawer
+    container_name: knob-keymap-drawer
     volumes:
       # Mount config and keymap-drawer directories
       - ./config:/config:ro
