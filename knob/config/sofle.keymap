@@ -165,6 +165,14 @@
             tapping-term-ms = <200>;
             bindings = <&sk LSHFT>, <&caps_word>;
         };
+
+        // Tap-dance for mouse layer: tap/hold = normal layer-tap, double-tap = lock layer
+        td_mouse: tap_dance_mouse {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&lt_repeat 5 TAB>, <&tog 5>;
+        };
     };
 
     keymap {
@@ -185,7 +193,7 @@
 &kp TAB         &kp Q         &kp W        &kp E        &kp R         &kp T                                                         &kp Y               &kp U         &kp I             &kp O               &kp P            &kp MINUS
 &kp ESCAPE      &hml LCTRL A  &hml LALT S  &hml LGUI D  &hml LSHFT F  &kp G                                                         &kp H               &hmr RSHFT J  &hmr RGUI K       &hmr RALT L         &hmr RCTRL SEMI  &kp SQT
 &td_shift_caps  &kp Z        &kp X       &kp C       &kp V        &kp B                   &kp C_MUTE          &none             &kp N               &kp M        &kp COMMA         &kp DOT            &kp FSLH        &td_shift_caps
-                         &kp LCTRL   &kp LALT    &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &lt_repeat 5 TAB  &lt_repeat 1 SPACE  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET
+                         &kp LCTRL   &kp LALT    &kp LGUI     &lt_repeat 2 BACKSPACE  &lt_repeat 3 TAB    &td_mouse         &lt_repeat 1 SPACE  &none        &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
             sensor-bindings =
