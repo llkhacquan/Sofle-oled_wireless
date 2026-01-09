@@ -280,21 +280,21 @@
         mouse_layer {
             label = "mouse";
 
-            // MOUSE LAYER - Simplified with normal and fast speeds only
-            // Hold FAST key to temporarily activate fast speed layer
+            // MOUSE LAYER - JIKL movement with UO clicks
+            // Hold FAST key (F or ;) to temporarily activate fast speed layer
             // ------------------------------------------------------------------------------------------------------------
-            // |       |      | SCR_U|      |      | CUT  |                   |       |      |      |      |      |       |
-            // |       | M_LT | M_DN | M_RT |      | COPY |                   | CUT   | SCR_L| SCR_U| SCR_D| SCR_R |       |
-            // |       | SCR_D|      | FAST |      | PASTE|                   | COPY  | FAST |      |      |      |       |
-            // | SCR_D |      |      |      |      |      |       |  |       | PASTE| LMB  | M_UP | RMB  | M_RT |       |
-            //                |      |      |      |      |       |  |       |      | M_L  | M_DN | M_RT |
+            // |       |      |      |      |      |      |                   |       |      |       |      |       |       |
+            // |       |      | SCR_U|      |      |      |                   |       | LMB  | M_UP  | RMB  |       |       |
+            // |       | SCR_L| SCR_D| SCR_R| FAST |      |                   |       | M_LT | M_DN  | M_RT | FAST  |       |
+            // |       | CUT  | COPY |PASTE |      |      |       |  |       |       | LMB  | MMB   | RMB  |       |       |
+            //                |      |      |      |      |       |  |       |       |      |       |      |
 
             bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &kp LC(X)                          &trans     &trans          &trans        &trans          &trans           &trans
-&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&trans          &trans  &msc SCRL_DOWN  &mo 6           &trans           &kp LC(V)                          &kp LC(C)  &mo 6           &trans        &trans          &trans           &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mkp LCLK       &mmv MOVE_UP  &mkp RCLK       &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT
+&trans  &trans          &trans          &trans           &trans  &trans                          &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans          &msc SCRL_UP    &trans           &trans  &trans                          &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &trans  &trans
+&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &mo 6   &trans                          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mo 6   &trans
+&trans  &kp LC(X)       &kp LC(C)       &kp LC(V)        &trans  &trans          &trans  &trans  &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
+                        &trans          &trans           &trans  &trans          &trans  &trans  &trans  &trans          &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_DEC C_BRI_INC>;
@@ -303,15 +303,15 @@
         mouse_fast_layer {
             label = "mouse_fast";
 
-            // FAST SPEED (Layer 7) - Fast mouse movement (4x speed)
+            // FAST SPEED (Layer 6) - Fast mouse movement (4x speed)
             // Activated only while holding FAST key on mouse layer
 
             bindings = <
-&trans          &trans  &trans          &msc SCRL_LEFT  &msc SCRL_UP     &kp LC(X)                          &trans     &trans          &trans        &trans          &trans           &trans
-&trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(C)                          &kp LC(X)  &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans
-&trans          &trans  &msc SCRL_DOWN  &trans          &trans           &kp LC(V)                          &kp LC(C)  &trans          &trans        &trans          &trans           &trans
-&msc SCRL_DOWN  &trans  &trans          &trans          &trans           &trans           &trans    &trans  &kp LC(V)  &mkp LCLK       &mmv MOVE_UP  &mkp RCLK       &mmv MOVE_RIGHT  &trans
-                        &trans          &trans          &trans           &trans           &trans    &trans  &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN &mmv MOVE_RIGHT
+&trans  &trans          &trans          &trans           &trans  &trans                          &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans          &msc SCRL_UP    &trans           &trans  &trans                          &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &trans  &trans
+&trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans  &trans                          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
+&trans  &kp LC(X)       &kp LC(C)       &kp LC(V)        &trans  &trans          &trans  &trans  &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
+                        &trans          &trans           &trans  &trans          &trans  &trans  &trans  &trans          &trans          &trans
             >;
         };
     };
