@@ -357,19 +357,19 @@
         mouse_layer {
             label = "mouse";
 
-            // MOUSE LAYER - JIKL movement (right) / SEDF scroll (left)
-            // Hold FAST key (G or ;) to temporarily activate fast speed layer
+            // MOUSE LAYER - JIKL movement (right) / ASDF scroll (left)
+            // Hold FAST key (A or ;) to temporarily activate fast speed layer
             // ------------------------------------------------------------------------------------------------------------
             // |       |      |      |      |      |      |                   |       |      |       |      |       |       |
             // |       |      |      | SCR_U|      |      |                   |       | LMB  | M_UP  | RMB  |       |       |
-            // |       |      | SCR_L| SCR_D| SCR_R| FAST |                   |       | M_LT | M_DN  | M_RT | FAST  |       |
+            // |       | FAST | SCR_L| SCR_D| SCR_R|      |                   |       | M_LT | M_DN  | M_RT | FAST  |       |
             // |       |      | CUT  | COPY |PASTE |      |       |  |       |       | LMB  | MMB   | RMB  |       |       |
             //                |      |      |      |      |       |  |       |       |      |       |      |
 
             bindings = <
 &trans  &trans  &trans          &trans          &trans           &trans                          &trans  &trans          &trans          &trans           &trans  &trans
 &trans  &trans  &trans          &msc SCRL_UP    &trans           &trans                          &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &trans  &trans
-&trans  &trans  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &mo 6                           &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mo 6   &trans
+&trans  &mo 6   &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_RIGHT  &trans                          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &mo 6   &trans
 &trans  &trans  &kp LC(X)       &kp LC(C)       &kp LC(V)        &trans          &trans  &trans  &trans  &mkp LCLK       &mkp MCLK       &mkp RCLK        &trans  &trans
                 &trans          &trans          &trans           &trans          &trans  &trans  &trans  &trans          &trans          &trans
             >;
