@@ -308,7 +308,7 @@
 &trans     &kp RET       &kp SPACE    &kp TAB      &kp BSPC      &kp K_CUT                      &kp K_CUT    &kp LS(TAB)    &kp K_UNDO  &kp K_REDO  &kp TAB    &trans
 &kp LSHFT  &hml_a LCTRL A  &hml_s LALT S  &hml_d LGUI D  &hml_f LSHFT F  &kp K_COPY                     &kp K_COPY   &kp LEFT       &kp UP      &kp DOWN    &kp RIGHT  &kp RSHFT
 &trans     &kp LC(A)    &kp LC(L)   &kp LC(W)    &kp K_FIND   &kp K_PASTE  &trans    &trans  &kp K_PASTE  &kp HOME       &kp PG_UP   &kp PG_DN   &kp END    &trans
-                        &trans      &trans       &trans       &trans       &trans    &trans  &kp K_FIND   &kp LC(LS(G))  &kp LC(G)   &trans
+                        &trans      &trans       &trans       &trans       &trans    &trans  &kp F12      &kp LC(LS(G))  &kp LC(G)   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_DEC C_BRI_INC>;
