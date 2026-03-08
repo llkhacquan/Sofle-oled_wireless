@@ -53,19 +53,19 @@
     combos {
         compatible = "zmk,combos";
 
-        // Left bootloader combo: 2 + 5
+        // Left bootloader combo: 3 + 4 + 5
 
         combo_bootloader_left {
-            timeout-ms = <500>;
-            key-positions = <2 5>;
+            timeout-ms = <1000>;
+            key-positions = <3 4 5>;
             bindings = <&bootloader>;
         };
 
-        // Right bootloader combo: 0 + 6
+        // Right bootloader combo: 6 + 7 + 8
 
         combo_bootloader_right {
-            timeout-ms = <500>;
-            key-positions = <9 6>;
+            timeout-ms = <1000>;
+            key-positions = <6 7 8>;
             bindings = <&bootloader>;
         };
 

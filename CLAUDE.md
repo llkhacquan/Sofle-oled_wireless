@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a ZMK firmware configuration repository for the Sofle V2 keyboard with wireless Nice!Nano controllers and OLED displays. The keymap is inspired by the glove80 layout, featuring advanced ergonomic capabilities including home row mods, tap-then-hold auto-repeat, and 6 specialized layers. The repository supports both GitHub Actions (cloud builds) and Docker-based local builds.
 
+**Layout consistency:** Both keyboards (knob and kiwikey) share the same keymap layout. The only difference is the knob variant has rotary encoder (up/down) support. Keep layouts in sync when making changes.
+
 ## Key Files and Structure
 
 - `config/sofle.keymap` - Main keymap configuration with 6 layers (BASE, LOWER, RAISE, NUMBER, ADJUST, MOUSE)
@@ -82,8 +84,9 @@ rm -rf build/ zmk/
 - Tap-then-hold → Fast auto-repeat bypassing layer (glove80-style)
 
 **Bootloader Combos (config/sofle.keymap:56-71)**
-- Left half: Press keys at positions 2+5 within 500ms
-- Right half: Press keys at positions 9+6 within 500ms
+- Left half: Press keys at positions 3+4+5 within 1000ms
+- Right half: Press keys at positions 6+7+8 within 1000ms
+- 3-key combo prevents accidental bootloader triggers
 - Enables software bootloader access without physical BOOT button
 
 ### Conditional Layers
@@ -112,8 +115,8 @@ Edit `config/sofle.keymap` directly:
 ## Flashing Process
 
 ### Software Bootloader Method (No Physical Button)
-1. **Left half**: Press combo keys 2+5 within 500ms → enters bootloader
-2. **Right half**: Press combo keys 9+6 within 500ms → enters bootloader
+1. **Left half**: Press combo keys 3+4+5 within 1000ms → enters bootloader
+2. **Right half**: Press combo keys 6+7+8 within 1000ms → enters bootloader
 3. Drag appropriate `.uf2` file to USB drive
 4. Firmware flashes automatically
 
@@ -148,7 +151,7 @@ Adapted from glove80 with configurable speed scaling:
 ### Timing Parameters
 - **Home row mods**: 200ms tap term, 300ms quick-tap, 100ms prior-idle
 - **Layer-tap**: 200ms tap term, 200ms quick-tap
-- **Bootloader combos**: 500ms timeout
+- **Bootloader combos**: 1000ms timeout (3-key combo)
 
 ## West Configuration
 - Uses ZMK firmware from `zmkfirmware/zmk` repository
