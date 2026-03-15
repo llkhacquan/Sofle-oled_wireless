@@ -10,13 +10,24 @@
 //#define WORLD_USE_COMPOSE  // use native Compose in place of Unicode
 //#define WORLD_HOST_AZERTY  // host computer is set to AZERTY locale
 //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
+// Thumb layer-tap: increase holding time to prevent missed space taps
+// Default is TAPPING_RESOLUTION+50 = 125ms which is too aggressive
+#define THUMB_HOLDING_TIME 200  // match Sofle lt_repeat tapping-term
+
 // TIP: Add more setting overrides here instead of editing them below.
 
 // HRM config: balanced flavor, uniform timing (synced with Sofle working config)
 #define HOMEY_HOLDING_TYPE "balanced"
 #define HOMEY_REPEAT_DECAY 175
 
-// Uniform streak decay (require-prior-idle-ms) - 75ms across all fingers
+// Index finger (Shift) overrides — sunaku defaults are tap-preferred/105ms
+// which makes Shift very hard to activate. Match Sofle's balanced/280ms/75ms.
+#define INDEX_HOLDING_TYPE "balanced"
+#define INDEX_HOLDING_TIME 280
+#define INDEX_STREAK_DECAY 75
+#define INDEX_REPEAT_DECAY 175
+
+// Per-finger streak decay (require-prior-idle-ms) — uniform 75ms
 #define LEFT_PINKY_STREAK_DECAY 75    // A = Ctrl
 #define RIGHT_PINKY_STREAK_DECAY 75   // ; = Ctrl
 #define LEFT_RINGY_STREAK_DECAY 75    // S = Alt
