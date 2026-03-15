@@ -12,8 +12,23 @@
 //#define WORLD_SHIFT_NUMBER // apply Shift to type number row digits
 // TIP: Add more setting overrides here instead of editing them below.
 
-// Match Sofle HRM config: balanced flavor + 75ms prior-idle for all fingers
+// HRM config: balanced flavor, per-finger tuning
 #define HOMEY_HOLDING_TYPE "balanced"
-#define HOMEY_STREAK_DECAY 75
-#define HOMEY_HOLDING_TIME 280
 #define HOMEY_REPEAT_DECAY 175
+
+// Per-finger streak decay (require-prior-idle-ms)
+// Higher = safer from misfires, but slower to activate as modifier
+#define LEFT_PINKY_STREAK_DECAY 150   // A = Ctrl (slow finger, needs more time)
+#define RIGHT_PINKY_STREAK_DECAY 150  // ; = Ctrl
+#define LEFT_RINGY_STREAK_DECAY 100   // S = Alt (Alt+Bksp needs to be fast)
+#define RIGHT_RINGY_STREAK_DECAY 100  // L = Alt
+#define LEFT_MIDDY_STREAK_DECAY 100   // D = GUI
+#define RIGHT_MIDDY_STREAK_DECAY 100  // K = GUI
+#define LEFT_INDEX_STREAK_DECAY 150   // F = Shift (most misfire-prone)
+#define RIGHT_INDEX_STREAK_DECAY 150  // J = Shift
+
+// Per-finger holding time (tapping-term-ms)
+#define PINKY_HOLDING_TIME 300        // pinky is slower
+#define RINGY_HOLDING_TIME 280
+#define MIDDY_HOLDING_TIME 260        // middle finger is fastest
+#define INDEX_HOLDING_TIME 260
