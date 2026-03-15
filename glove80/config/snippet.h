@@ -1151,7 +1151,8 @@ behaviors {
        64 65 66 67 68                                  \
                       69 52                            \
                        70 53                           \
-                        71 54
+                        71 54 \
+                      55 56 57 72 73 74
   #define                                              \
                                        RIGHT_HAND_KEYS \
                                          5  6  7  8  9 \
@@ -1162,7 +1163,8 @@ behaviors {
                                         75 76 77 78 79 \
                                   57 74                \
                                  56 73                 \
-                                55 72
+                                55 72 \
+                      52 53 54 69 70 71
 
   #define LEFT_PINKY_KEY  KEY_LH_C5R4
   #define LEFT_RINGY_KEY  KEY_LH_C4R4

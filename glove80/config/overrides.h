@@ -21,21 +21,21 @@
 #define HOMEY_REPEAT_DECAY 175
 
 // Index finger (Shift) overrides — sunaku defaults are tap-preferred/105ms
-// which makes Shift very hard to activate. Match Sofle's balanced/280ms/75ms.
 #define INDEX_HOLDING_TYPE "balanced"
-#define INDEX_HOLDING_TIME 280
-#define INDEX_STREAK_DECAY 75
 #define INDEX_REPEAT_DECAY 175
 
-// Per-finger streak decay (require-prior-idle-ms) — uniform 75ms
+// Per-finger streak decay (require-prior-idle-ms)
+// Per-finger streak decay (require-prior-idle-ms)
+// Glove80 lacks Sofle-style bilateral, so lower streak decay for ring/index
+// compensates — allows hold to engage faster during fast typing
 #define LEFT_PINKY_STREAK_DECAY 75    // A = Ctrl
 #define RIGHT_PINKY_STREAK_DECAY 75   // ; = Ctrl
-#define LEFT_RINGY_STREAK_DECAY 75    // S = Alt
-#define RIGHT_RINGY_STREAK_DECAY 75   // L = Alt
+#define LEFT_RINGY_STREAK_DECAY 50    // S = Alt (fast Alt+Bksp)
+#define RIGHT_RINGY_STREAK_DECAY 50   // L = Alt
 #define LEFT_MIDDY_STREAK_DECAY 75    // D = GUI
 #define RIGHT_MIDDY_STREAK_DECAY 75   // K = GUI
-#define LEFT_INDEX_STREAK_DECAY 75    // F = Shift
-#define RIGHT_INDEX_STREAK_DECAY 75   // J = Shift
+#define LEFT_INDEX_STREAK_DECAY 50    // F = Shift (fast Shift+key)
+#define RIGHT_INDEX_STREAK_DECAY 50   // J = Shift
 
 // Uniform holding time (tapping-term-ms) - 280ms across all fingers
 #define PINKY_HOLDING_TIME 280
