@@ -1,0 +1,41 @@
+{
+  "keyboard": "glove80",
+  "firmware_api_version": "1",
+  "locale": "en-US",
+  "uuid": "ebe63e65-bcfc-48b2-9257-83b197f6117f",
+  "parent_uuid": "1f8a4131-c717-4c7d-a3aa-585022a193ac",
+  "unlisted": false,
+  "date": 1773590863,
+  "creator": "llkhacquan",
+  "title": "Glorious Engrammer v52 quannk",
+  "notes": "Sunaku's Keymap v52 for the \"Glorious Engrammer\" \ud83e\uddd1\u200d\ud83d\ude80\ud83d\ude80\u2728\n- Intro & setup: https://github.com/sunaku/glove80-keymaps/tree/v52/#readme\n- Release notes: https://github.com/sunaku/glove80-keymaps/releases/tag/v52\n- Printable map: https://github.com/sunaku/glove80-keymaps/raw/v52/README/all-layer-diagrams.pdf\n- Documentation: https://sunaku.github.io/moergo-glove80-keyboard.html#layers\n- Discord forum: #glorious-engrammer channel in https://www.moergo.com/discord",
+  "tags": [
+    "sunaku",
+    "home-row-mods",
+    "rgb",
+    "mouse-layer",
+    "gaming-layer",
+    "symbol-layer",
+    "vim",
+    "unicode",
+    "emoji",
+    "enthium",
+    "colemak",
+    "dvorak",
+    "qwerty",
+    "macos",
+    "windows",
+    "linux"
+  ],
+  "config_parameters": [
+    {
+      "paramName": "HID_POINTING",
+      "value": "y"
+    }
+  ],
+  "layout_parameters": {},
+  "macros": [],
+  "inputListeners": [],
+  "holdTaps": [],
+  "combos": []
+}
