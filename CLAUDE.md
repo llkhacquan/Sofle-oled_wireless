@@ -4,157 +4,111 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a ZMK firmware configuration repository for the Sofle V2 keyboard with wireless Nice!Nano controllers and OLED displays. The keymap is inspired by the glove80 layout, featuring advanced ergonomic capabilities including home row mods, tap-then-hold auto-repeat, and 6 specialized layers. The repository supports both GitHub Actions (cloud builds) and Docker-based local builds.
+Keyboard firmware configurations for 3 keyboards sharing the same ergonomic keymap layout (home row mods, tap-then-hold auto-repeat, 6 specialized layers). All keyboards target macOS with identical modifier assignments.
 
-**Layout consistency:** Both keyboards (knob and kiwikey) share the same keymap layout. The only difference is the knob variant has rotary encoder (up/down) support. Keep layouts in sync when making changes.
+**Layout consistency:** All 3 keyboards share the same keymap layout and HRM tuning. Keep them in sync when making changes.
+
+### Keyboards
+
+| Directory | Hardware | Firmware | Build Method |
+|-----------|----------|----------|--------------|
+| `knob/` | Sofle V2 + Nice!Nano v2 | ZMK | Docker (`knob/build.sh`) or GitHub Actions |
+| `kiwikey/` | Sofle V2 + Nice!Nano v2 | ZMK | Docker (`kiwikey/build.sh`) or GitHub Actions |
+| `glove80/` | MoErgo Glove80 | ZMK (sunaku's keymap) | Glove80 Layout Editor web app |
+
+- **knob** vs **kiwikey**: Same keymap, only difference is knob has rotary encoder support
+- **glove80**: Uses sunaku's keymap framework; config split into editable files via `glove80-split.py`
 
 ## Key Files and Structure
 
-- `config/sofle.keymap` - Main keymap configuration with 6 layers (BASE, LOWER, RAISE, NUMBER, ADJUST, MOUSE)
-- `config/sofle.conf` - ZMK configuration settings (OLED display, encoders, RGB underglow)
-- `build.yaml` - GitHub Actions matrix configuration for firmware builds
-- `build.sh` - Local Docker-based build script (builds firmware + generates keymap visualization)
-- `docker-compose.yml` - Docker services for ZMK building and keymap visualization
-- `Dockerfile` - ZMK build environment with west tooling
-- `sofle.yaml` - Keymap layout configuration for keymap-drawer visualization
-- `keymap-drawer/` - Generated keymap visualizations (SVG and YAML files)
-- `.github/workflows/build.yml` - Automated CI/CD workflow for firmware building
+### Sofle (knob/ and kiwikey/)
+- `config/sofle.keymap` - Main keymap configuration with 6 layers
+- `config/sofle.conf` - ZMK configuration (OLED, encoders, power management)
+- `build.sh` - Local Docker-based build script
+- `build.yaml` - GitHub Actions matrix configuration
+- `sofle.yaml` - Keymap layout for keymap-drawer visualization
+- `keymap-drawer/` - Generated keymap visualizations (SVG and YAML)
+
+### Glove80 (glove80/)
+- `quannk.json` - Full Layout Editor export (source of truth)
+- `config/overrides.h` - User HRM/behavior overrides (edit this!)
+- `config/snippet.h` - sunaku's keymap snippet (don't edit)
+- `config/layers.json` - Layer definitions from Layout Editor
+- `glove80-split.py` / `glove80-merge.py` - Split/merge JSON for version control
+
+### Root
+- `Makefile` - Build both Sofle keyboards: `make build`
 
 ## Building Firmware
 
-### Local Build (Recommended for Development)
+### Sofle (knob/kiwikey)
 ```bash
-./build.sh
-```
-This single command:
-1. Clones ZMK repository if not present (one-time setup)
-2. Builds firmware for left half, right half, and settings reset using Docker
-3. Generates keymap visualization SVG (single-column layout)
-4. Outputs `.uf2` files to `build/` directory
-5. Copies generated SVG to root for easy viewing
-
-**Output files:**
-- `build/sofle_left-nice_nano_v2-zmk.uf2`
-- `build/sofle_right-nice_nano_v2-zmk.uf2`
-- `build/settings_reset-nice_nano_v2-zmk.uf2`
-- `sofle.svg` (keymap visualization, copied from keymap-drawer/)
-
-### Cloud Build (GitHub Actions)
-- Triggered automatically on: push, pull request, or manual workflow dispatch
-- Uses `zmkfirmware/zmk/.github/workflows/build-user-config.yml@main`
-- Download `.uf2` files from GitHub Actions artifacts after successful builds
-- Separate keymap visualization workflow also runs on keymap changes
-
-### Manual Docker Commands
-```bash
-# Build firmware only
-docker-compose up zmk-builder
-
-# Generate keymap visualization only
-docker-compose up keymap-drawer
-
-# Clean build artifacts
-rm -rf build/ zmk/
+make build          # Build both keyboards
+make build-knob     # Build knob only
+make build-kiwikey  # Build kiwikey only
+make clean          # Remove build artifacts
 ```
 
-## Keymap Architecture
+Each `build.sh` clones ZMK (one-time), builds left/right/reset `.uf2` files via Docker, and generates keymap SVG.
+
+**Output:** `{keyboard}/build/*.uf2` and `{keyboard}/sofle.svg`
+
+**Cloud build:** GitHub Actions triggers on push/PR, download `.uf2` from artifacts.
+
+### Glove80
+1. Edit `glove80/config/overrides.h` (HRM tuning, behavior settings)
+2. Run `glove80/glove80-merge.py` to merge back into `quannk.json`
+3. Upload `quannk.json` to Glove80 Layout Editor web app
+4. Build and download firmware from the web app
+
+## Keymap Architecture (Shared Across All 3 Keyboards)
 
 ### Layer Structure (6 Layers)
-- **BASE (0)**: QWERTY layout with home row mods (macOS optimized)
-  - Left hand: A(Ctrl), S(Alt), D(Cmd), F(Shift)
-  - Right hand: J(Shift), K(Cmd), L(Alt), ;(Ctrl)
-- **LOWER (1)**: Symbols, programming operators, navigation (hold Space)
-- **RAISE (2)**: Cursor navigation, text editing commands (hold Backspace)
-- **NUMBER (3)**: Numpad layout, function keys F1-F12, hex digits (hold Tab)
-- **ADJUST (4)**: Bluetooth management, RGB controls (activated when LOWER + RAISE)
-- **MOUSE (5)**: Mouse movement and scrolling with configurable speeds
+- **BASE (0)**: QWERTY with home row mods (macOS: A=Ctrl, S=Alt, D=Cmd, F=Shift / mirror on right)
+- **LOWER (1)**: Symbols, programming operators (hold Space)
+- **RAISE (2)**: Cursor navigation, text editing (hold Backspace)
+- **NUMBER (3)**: Numpad, F1-F12, hex digits (hold Tab)
+- **ADJUST (4)**: Bluetooth, RGB controls (LOWER + RAISE)
+- **MOUSE (5)**: Mouse movement and scrolling
 
-### Advanced Behaviors
+### Home Row Mods (Per-Finger Tuning)
 
-**Home Row Mods (config/sofle.keymap:90-99)**
-- Tapping term: 200ms
-- Quick-tap: 300ms (tap-then-hold auto-repeat)
-- Prior-idle: 100ms (prevents accidental activation)
-- Retro-tap enabled (forgiveness on hold-release)
+Balanced flavor with uniform timing across all fingers.
 
-**Layer-Tap with Auto-Repeat (config/sofle.keymap:77-86)**
-- Thumb keys (Space, Tab, Backspace) support tap-then-hold auto-repeat
-- Single tap → Normal key behavior
-- Direct hold → Layer activation
-- Tap-then-hold → Fast auto-repeat bypassing layer (glove80-style)
+| Parameter | Value | ZMK property |
+|-----------|-------|--------------|
+| Tapping term | 280ms | `tapping-term-ms` / `HOLDING_TIME` |
+| Quick-tap (repeat decay) | 175ms | `quick-tap-ms` / `HOMEY_REPEAT_DECAY` |
+| Prior idle (streak decay) | 75ms | `require-prior-idle-ms` / `STREAK_DECAY` |
 
-**Bootloader Combos (config/sofle.keymap:56-71)**
-- Left half: Press keys at positions 3+4+5 within 1000ms
-- Right half: Press keys at positions 6+7+8 within 1000ms
-- 3-key combo prevents accidental bootloader triggers
-- Enables software bootloader access without physical BOOT button
+**Sync rule:** When changing HRM timing, update all 3 keyboards to match. Sofle source of truth is `kiwikey/config/sofle.keymap`, Glove80 is `glove80/config/overrides.h`.
 
-### Conditional Layers
-- ADJUST layer automatically activates when both LOWER and RAISE are held simultaneously
-- Defined at config/sofle.keymap:44-51
+### Other Behaviors
+- **Layer-tap auto-repeat**: Thumb keys (Space/Tab/Bksp) — tap-then-hold = auto-repeat, direct hold = layer
+- **Bootloader combos** (Sofle only): 3-key combo (3+4+5 left, 6+7+8 right), 1000ms timeout
+- **Conditional layers**: ADJUST = LOWER + RAISE held simultaneously
 
 ## Keymap Modification
 
-### Online Editor (Easy GUI Method)
-Use https://nickcoutsos.github.io/keymap-editor
-- Repository is pre-configured to work with this editor
-- Make changes and commit directly through the web interface
+### Sofle (knob/kiwikey)
+- **GUI editor**: https://nickcoutsos.github.io/keymap-editor (commit directly)
+- **Manual**: Edit `config/sofle.keymap` → run `./build.sh` → check SVG → flash `.uf2`
 
-### Manual Editing
-Edit `config/sofle.keymap` directly:
-- Layer definitions use ZMK keycode syntax
-- Custom behaviors defined in `behaviors` block
-- Combos defined in `combos` block
-- Mouse configuration constants at top of file (lines 24-39)
+### Glove80
+- Edit `glove80/config/overrides.h` → merge → upload to Layout Editor
 
-### After Editing
-1. Run `./build.sh` to build and visualize
-2. Check generated `sofle.svg` to verify changes
-3. Flash `.uf2` files to keyboard
+### Flashing Sofle
+1. Enter bootloader: combo keys 3+4+5 (left) or 6+7+8 (right)
+2. Drag `.uf2` to USB drive. Flash right half first, then left.
+3. **Troubleshooting:** Flash `settings_reset` firmware first if issues occur.
 
-## Flashing Process
+## Hardware Configuration
 
-### Software Bootloader Method (No Physical Button)
-1. **Left half**: Press combo keys 3+4+5 within 1000ms → enters bootloader
-2. **Right half**: Press combo keys 6+7+8 within 1000ms → enters bootloader
-3. Drag appropriate `.uf2` file to USB drive
-4. Firmware flashes automatically
+### Sofle (config/sofle.conf)
+- OLED display, rotary encoders (knob only), BT 5.0 (Nice!Nano v2)
+- RGB underglow available but disabled for battery life
+- Mouse keys with 4 speed modes (FINE/SLOW/FAST/WARP)
 
-### Physical Button Method (Fallback)
-1. Connect keyboard via USB-C cable
-2. Double-press "BOOT" button quickly
-3. Drag appropriate `.uf2` file to USB drive
-
-### Recommended Flashing Order
-1. Turn off both keyboard halves
-2. Flash right half first
-3. Flash left half second
-4. Turn on right half → should show connection status on OLED
-5. Test both halves
-
-**Troubleshooting:** Flash `settings_reset-nice_nano_v2-zmk.uf2` first if experiencing issues
-
-## Configuration Details
-
-### Hardware Features (config/sofle.conf)
-- OLED Display: `CONFIG_ZMK_DISPLAY=y` (enabled)
-- Rotary Encoders: `CONFIG_EC11=y` (enabled, 5-way on right side)
-- RGB Underglow: Available but disabled by default for battery life
-- Nice!Nano v2: Bluetooth 5.0 wireless controllers
-
-### Mouse Configuration (config/sofle.keymap:24-39)
-Adapted from glove80 with configurable speed scaling:
-- Motion acceleration exponent, time to max speed, maximum speed
-- Scroll acceleration and speed settings
-- Four speed modes: FINE (1/16), SLOW (1/4), FAST (4x), WARP (12x)
-
-### Timing Parameters
-- **Home row mods**: 200ms tap term, 300ms quick-tap, 100ms prior-idle
-- **Layer-tap**: 200ms tap term, 200ms quick-tap
-- **Bootloader combos**: 1000ms timeout (3-key combo)
-
-## West Configuration
-- Uses ZMK firmware from `zmkfirmware/zmk` repository
-- Configuration follows standard ZMK user config structure
-- Local builds cache ZMK in `zmk/` directory (auto-cloned by build.sh)
-- West workspace initialized automatically by Docker build script
+### Glove80
+- Built-in BT, RGB, per-key LEDs
+- Configuration managed through Layout Editor web app

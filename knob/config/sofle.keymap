@@ -124,13 +124,13 @@
             hold-while-undecided;  // Activate layer immediately for OLED and conditional layers
         };
 
-        // Bilateral home row mods - 8 separate behaviors for per-finger tuning
-        // Shift keys (F, J) have lower prior-idle for easier Shift+punctuation
+        // Bilateral home row mods - uniform timing (working config)
+        // Balanced flavor: wait for next key before deciding tap vs hold
 
         #define HML_KEYS 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57
         #define HMR_KEYS 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 54 55 56 57
 
-        // Left hand: A = Ctrl (75ms idle - fast for tmux leader Ctrl+Space)
+        // Left pinky: A = Ctrl
         hml_a: homerow_mod_left_a {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -143,7 +143,7 @@
             hold-trigger-on-release;
         };
 
-        // Left hand: S = Alt (75ms idle)
+        // Left ring: S = Alt
         hml_s: homerow_mod_left_s {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -156,7 +156,7 @@
             hold-trigger-on-release;
         };
 
-        // Left hand: D = GUI (75ms idle)
+        // Left middle: D = GUI
         hml_d: homerow_mod_left_d {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -169,7 +169,7 @@
             hold-trigger-on-release;
         };
 
-        // Left hand: F = Shift (75ms idle - fast for Shift+key combos)
+        // Left index: F = Shift
         hml_f: homerow_mod_left_f {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -182,7 +182,7 @@
             hold-trigger-on-release;
         };
 
-        // Right hand: J = Shift (75ms idle - lower for fast Shift+key)
+        // Right index: J = Shift
         hmr_j: homerow_mod_right_j {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -195,7 +195,7 @@
             hold-trigger-on-release;
         };
 
-        // Right hand: K = GUI (75ms idle)
+        // Right middle: K = GUI
         hmr_k: homerow_mod_right_k {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -208,7 +208,7 @@
             hold-trigger-on-release;
         };
 
-        // Right hand: L = Alt (75ms idle)
+        // Right ring: L = Alt
         hmr_l: homerow_mod_right_l {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -221,12 +221,12 @@
             hold-trigger-on-release;
         };
 
-        // Right hand: ; = Ctrl (75ms idle)
+        // Right pinky: ; = Ctrl
         hmr_semi: homerow_mod_right_semi {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <75>;
             bindings = <&kp>, <&kp>;
