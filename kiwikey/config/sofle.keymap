@@ -169,27 +169,27 @@
             hold-trigger-on-release;
         };
 
-        // Left index: F = Shift
+        // Left index: F = Shift (50ms idle for fast Shift+key)
         hml_f: homerow_mod_left_f {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <75>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <HML_KEYS>;
             hold-trigger-on-release;
         };
 
-        // Right index: J = Shift
+        // Right index: J = Shift (50ms idle for fast Shift+key)
         hmr_j: homerow_mod_right_j {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            require-prior-idle-ms = <75>;
+            require-prior-idle-ms = <50>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <HMR_KEYS>;
             hold-trigger-on-release;
