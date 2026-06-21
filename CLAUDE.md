@@ -36,6 +36,13 @@ Keyboard firmware configurations for 3 keyboards sharing the same ergonomic keym
 - `config/layers.json` - Layer definitions from Layout Editor
 - `glove80-split.py` / `glove80-merge.py` - Split/merge JSON for version control
 
+### Reference: sunaku's Glove80 Keymaps (glove80-keymaps/)
+- Local clone of [sunaku/glove80-keymaps](https://github.com/sunaku/glove80-keymaps) (Glorious Engrammer v52)
+- `keymap.dtsi` - Full keymap with KEY_* position macros, all layers, HRM config
+- `layouts/` - Base layout variants (Engrammer, QWERTY, Colemak, Dvorak, Enthium)
+- `define.json` - Default parameter values (timing, holding types)
+- Reference only - not built from this repo
+
 ### Root
 - `Makefile` - Build both Sofle keyboards: `make build`
 

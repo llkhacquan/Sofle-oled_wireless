@@ -276,14 +276,14 @@
             // SYMBOL LAYER - Programming Symbols (adapted from glove80)
             // ------------------------------------------------------------------------------------------------------------
             // |   `   |  ,   |  (   |  )   |  ;   |  .   |                   |      |      |       |      |       |       |
-            // |   !   |  [   |  {   |  }   |  ]   |  ?   |                   |  `   | DEL  | S-TAB | INS  |  ESC  |       |
+            // |   !   |  [   |  {   |  }   |  ]   |  ?   |                   |  `   | DEL  | S-TAB | INS  |  ESC  |   \   |
             // |   #   |  ^   |  =   |  _   |  $   |  *   |                   |  "   | BSPC |  TAB  | SPC  | ENTER |       |
             // |   ~   |  <   |  |   |  -   |  >   |  /   |       |   |       |  '   | SHFT | GUI   | ALT  |  CTL  |       |
             //                |  '   |  "   |  +   |  %   |   :   |   |       |      |      |  END  | PGUP |
 
             bindings = <
 &kp GRAVE  &kp COMMA  &kp LPAR   &kp RPAR   &kp SEMI  &kp DOT                               &trans     &trans     &trans       &trans    &trans     &trans
-&kp EXCL   &kp LBKT   &kp LBRC   &kp RBRC   &kp RBKT  &kp QMARK                             &kp GRAVE  &kp DEL    &kp LS(TAB)  &kp INS   &kp ESC    &trans
+&kp EXCL   &kp LBKT   &kp LBRC   &kp RBRC   &kp RBKT  &kp QMARK                             &kp GRAVE  &kp DEL    &kp LS(TAB)  &kp INS   &kp ESC    &kp BSLH
 &kp HASH   &kp CARET  &kp EQUAL  &kp UNDER  &kp DLLR  &kp ASTRK                             &kp DQT    &kp BSPC   &kp TAB      &kp SPACE &kp ENTER  &trans
 &kp TILDE  &kp LT     &kp PIPE   &kp MINUS  &kp GT    &kp FSLH   &trans         &trans      &kp SQT    &kp RSHFT  &kp RGUI     &kp RALT  &kp RCTRL  &trans
                       &kp SQT    &kp DQT    &kp PLUS  &kp PRCNT  &kp COLON    &trans     &trans     &trans     &kp END   &kp PG_UP
